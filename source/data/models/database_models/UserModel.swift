@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+
+class User: NSObject{
+
+    struct user{
+            
+    }
+    
+    
+    
+}

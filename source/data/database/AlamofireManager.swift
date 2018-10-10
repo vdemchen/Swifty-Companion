@@ -8,36 +8,28 @@
 
 import Alamofire
 
-struct token_info: Codable {
-    var access_token: String?
-}
 
-class AlamofireManager{
+class AlamofireManager: NSObject{
+    
+    private var token: String?
+    let decoder = JSONDecoder()
     
     private let config: [String:String] = [
-        "grand_type":"client_credentials",
-        "client_id": ModelsKeys.uidKey,
-        "client_secret": ModelsKeys.secretKey
+        ModelsKeys.keyGrantType: ModelsKeys.clientCradentials,
+        ModelsKeys.keyCliendId: ModelsKeys.uidKey,
+        ModelsKeys.keyClientSecret: ModelsKeys.secretKey
     ]
-    let decoder = JSONDecoder()
-    private var token = String()
     
     
-    init(){
-        self.getToken { (token) in
-            self.token = token
-        }
-        print(self.token)
-    }
     
     
-    func getToken(complition: @escaping(_ token: String)->()){
-        Alamofire.request(ModelsKeys.tokenLink, method: .post, parameters: self.config).responseJSON { (response) in
-            guard response.result.isSuccess else {print(String(describing: response.result.error)) ;return}
-            guard let json = response.data  else {print(String(describing: response.result.error)) ;return}
+    func createToken(complition: @escaping(String?)->()){
+        Alamofire.request(ModelsKeys.tokenLink, method: .post, parameters: self.config).responseJSON { response in
+            guard response.result.isSuccess else {print(String(describing: response.result.error)); return}
+            guard let json = response.data  else {print(String(describing: response.result.error)); return}
             do{
-                let tokenData = try self.decoder.decode(token_info.self, from: json)
-                complition(tokenData.access_token ?? "")
+                let tokenData = try self.decoder.decode(ModelsKeys.token_info.self, from: json)
+                complition(tokenData.access_token)
             }
             catch let error{
                 print(String(describing: error))
@@ -46,4 +38,17 @@ class AlamofireManager{
     }
     
     
+    class func createHeader(token: String) -> HTTPHeaders{
+        let header: HTTPHeaders = [
+            ModelsKeys.keyAuthoriztion: ("\(ModelsKeys.keyBearer) \(token)"),
+            ModelsKeys.keyAccept: ModelsKeys.acceptData
+        ]
+        return header
+    }
+    
+    
+    
+    func getUSerName(complition: @escaping(String?)->()){
+        
+    }
 }

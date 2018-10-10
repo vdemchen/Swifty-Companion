@@ -608,7 +608,7 @@
 				FDB2FC4A1E5891381CD9D922145497F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
 			isa = XCConfigurationList;
@@ -617,7 +617,7 @@
 				34E77E2E24311F3D2D8A6311074F3DC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		D55D4A9F7730760FC486440DA021FCB9 /* Build configuration list for PBXNativeTarget "Pods-SwiftyCompanion" */ = {
 			isa = XCConfigurationList;
@@ -626,7 +626,7 @@
 				5C0E97367CC3A7BA4892DAEA7710DE25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

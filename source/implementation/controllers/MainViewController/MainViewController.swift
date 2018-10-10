@@ -13,6 +13,9 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        AlamofireManager().getToken { (token) in
+            print(token)
+        }
         // Do any additional setup after loading the view.
     }
     

@@ -21,6 +21,7 @@ class ModelsKeys: NSObject
     static let acceptData = "application/json"
     static let keyBearer = "Bearer"
     
+    static let userGetLink = "https://api.intra.42.fr/v2/users/"
     
     static let tokenLink = "https://api.intra.42.fr/oauth/token"
     static let apiLink = "https://api.intra.42.fr/"

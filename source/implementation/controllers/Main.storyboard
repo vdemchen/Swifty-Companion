@@ -25,21 +25,51 @@
             </objects>
             <point key="canvasLocation" x="-340" y="-412"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Find User View Controller-->
         <scene sceneID="MmM-hw-OBW">
             <objects>
-                <viewController id="MHN-bD-eVk" customClass="MainViewController" customModule="SwiftyCompanion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MHN-bD-eVk" customClass="FindUserViewController" customModule="SwiftyCompanion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Kb-BP-9Ag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvq-T1-aUh">
+                                <rect key="frame" x="144" y="329" width="86" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="findUserButtom:" destination="MHN-bD-eVk" eventType="touchUpInside" id="RKg-OQ-7gF"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YoI-sk-Pct">
+                                <rect key="frame" x="112" y="255" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Lzg-rY-oR2"/>
+                                    <constraint firstAttribute="height" constant="50" id="x9c-OD-MNn"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uvq-T1-aUh" firstAttribute="top" secondItem="YoI-sk-Pct" secondAttribute="bottom" constant="24" id="Lu1-zm-gD0"/>
+                            <constraint firstItem="Uvq-T1-aUh" firstAttribute="leading" secondItem="RX7-Ht-rgN" secondAttribute="leading" constant="144" id="Ra2-wJ-bsQ"/>
+                            <constraint firstItem="YoI-sk-Pct" firstAttribute="top" secondItem="RX7-Ht-rgN" secondAttribute="top" constant="191" id="SSi-mf-HN0"/>
+                            <constraint firstItem="YoI-sk-Pct" firstAttribute="leading" secondItem="RX7-Ht-rgN" secondAttribute="leading" constant="112" id="k1t-TP-MQd"/>
+                            <constraint firstItem="Uvq-T1-aUh" firstAttribute="centerX" secondItem="7Kb-BP-9Ag" secondAttribute="centerX" id="t8h-Z7-X4Y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RX7-Ht-rgN"/>
                     </view>
                     <navigationItem key="navigationItem" id="025-9B-zYW"/>
+                    <connections>
+                        <outlet property="loginInputField" destination="YoI-sk-Pct" id="pat-t6-oOg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJq-5l-Nbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="482" y="-411"/>
+            <point key="canvasLocation" x="480.80000000000001" y="-411.544227886057"/>
         </scene>
         <!--User Info View Controller-->
         <scene sceneID="6uK-BE-fh9">

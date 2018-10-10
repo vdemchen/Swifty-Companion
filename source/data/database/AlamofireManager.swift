@@ -9,7 +9,7 @@
 import Alamofire
 
 
-class AlamofireManager: NSObject{
+class AlamofireManager{
     
     private var token: String?
     let decoder = JSONDecoder()
@@ -20,25 +20,24 @@ class AlamofireManager: NSObject{
         ModelsKeys.keyClientSecret: ModelsKeys.secretKey
     ]
     
-    
-    
-    
     func createToken(complition: @escaping(String?)->()){
         Alamofire.request(ModelsKeys.tokenLink, method: .post, parameters: self.config).responseJSON { response in
             guard response.result.isSuccess else {print(String(describing: response.result.error)); return}
             guard let json = response.data  else {print(String(describing: response.result.error)); return}
             do{
                 let tokenData = try self.decoder.decode(ModelsKeys.token_info.self, from: json)
+                self.token = tokenData.access_token
                 complition(tokenData.access_token)
             }
             catch let error{
                 print(String(describing: error))
             }
         }
+        complition(nil)
     }
     
     
-    class func createHeader(token: String) -> HTTPHeaders{
+    class func createHeader(_ token: String) -> HTTPHeaders{
         let header: HTTPHeaders = [
             ModelsKeys.keyAuthoriztion: ("\(ModelsKeys.keyBearer) \(token)"),
             ModelsKeys.keyAccept: ModelsKeys.acceptData
@@ -47,8 +46,19 @@ class AlamofireManager: NSObject{
     }
     
     
-    
-    func getUSerName(complition: @escaping(String?)->()){
+    func getUserRequsest(userName: String, complition: @escaping(_ user: User?,_ error: String?)->()){
         
+        self.createToken(complition: { (token) in
+            let  header = AlamofireManager.createHeader(token ?? "")
+            
+            Alamofire.request(ModelsKeys.userGetLink, method: .get, headers: header).responseJSON { (response) in
+                guard response.result.isSuccess else {complition(nil, String(describing: response.result.error)); return}
+                guard let json = response.data else {return}
+                print(response.description)
+            }
+        })
     }
+    
+    
+    
 }

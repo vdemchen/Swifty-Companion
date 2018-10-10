@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245FEDF5216E73E70078BC59 /* FindUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245FEDF4216E73E70078BC59 /* FindUserViewController.swift */; };
 		24F2E7BE216DA168003A7E0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7BD216DA168003A7E0A /* AppDelegate.swift */; };
 		24F2E7C5216DA169003A7E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F2E7C4216DA169003A7E0A /* Assets.xcassets */; };
 		24F2E800216DA374003A7E0A /* ModelsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7DC216DA374003A7E0A /* ModelsKeys.swift */; };
@@ -23,13 +24,13 @@
 		24F2E80D216DA374003A7E0A /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7F1216DA374003A7E0A /* UserServices.swift */; };
 		24F2E816216DA374003A7E0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F2E7FD216DA374003A7E0A /* Main.storyboard */; };
 		24F2E817216DA374003A7E0A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F2E7FE216DA374003A7E0A /* Launch Screen.storyboard */; };
-		24F2E819216DA3BB003A7E0A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E818216DA3BB003A7E0A /* MainViewController.swift */; };
 		24F2E81D216DA3FD003A7E0A /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E81C216DA3FD003A7E0A /* UserInfoViewController.swift */; };
 		24F2E81F216DA4EB003A7E0A /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E81E216DA4EB003A7E0A /* AlamofireManager.swift */; };
 		BA2215DC6423F5CA17901822 /* Pods_SwiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D4063516BDE424B472F8AC /* Pods_SwiftyCompanion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		245FEDF4216E73E70078BC59 /* FindUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindUserViewController.swift; sourceTree = "<group>"; };
 		24F2E7BA216DA168003A7E0A /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F2E7BD216DA168003A7E0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F2E7C4216DA169003A7E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		24F2E7F1216DA374003A7E0A /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		24F2E7FD216DA374003A7E0A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		24F2E7FE216DA374003A7E0A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		24F2E818216DA3BB003A7E0A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		24F2E81C216DA3FD003A7E0A /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		24F2E81E216DA4EB003A7E0A /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		92D4063516BDE424B472F8AC /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,12 +115,12 @@
 			path = resurce;
 			sourceTree = "<group>";
 		};
-		24F2E7D6216DA336003A7E0A /* MainViewController */ = {
+		24F2E7D6216DA336003A7E0A /* FindUserViewController */ = {
 			isa = PBXGroup;
 			children = (
-				24F2E818216DA3BB003A7E0A /* MainViewController.swift */,
+				245FEDF4216E73E70078BC59 /* FindUserViewController.swift */,
 			);
-			path = MainViewController;
+			path = FindUserViewController;
 			sourceTree = "<group>";
 		};
 		24F2E7D7216DA347003A7E0A /* UserInfoViewController */ = {
@@ -221,7 +221,7 @@
 			children = (
 				24F2E7FE216DA374003A7E0A /* Launch Screen.storyboard */,
 				24F2E7FD216DA374003A7E0A /* Main.storyboard */,
-				24F2E7D6216DA336003A7E0A /* MainViewController */,
+				24F2E7D6216DA336003A7E0A /* FindUserViewController */,
 				24F2E7D7216DA347003A7E0A /* UserInfoViewController */,
 			);
 			path = controllers;
@@ -381,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F2E81D216DA3FD003A7E0A /* UserInfoViewController.swift in Sources */,
-				24F2E819216DA3BB003A7E0A /* MainViewController.swift in Sources */,
 				24F2E804216DA374003A7E0A /* NSObjectExtension.swift in Sources */,
 				24F2E80D216DA374003A7E0A /* UserServices.swift in Sources */,
 				24F2E807216DA374003A7E0A /* StringExtension.swift in Sources */,
@@ -389,6 +388,7 @@
 				24F2E801216DA374003A7E0A /* UserModel.swift in Sources */,
 				24F2E80A216DA374003A7E0A /* BaseViewController.swift in Sources */,
 				24F2E7BE216DA168003A7E0A /* AppDelegate.swift in Sources */,
+				245FEDF5216E73E70078BC59 /* FindUserViewController.swift in Sources */,
 				24F2E809216DA374003A7E0A /* ActivityIndicatorView.swift in Sources */,
 				24F2E802216DA374003A7E0A /* UIAlertControllerExtension.swift in Sources */,
 				24F2E805216DA374003A7E0A /* UIApplicationExtension.swift in Sources */,

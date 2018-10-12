@@ -10,27 +10,31 @@ import UIKit
 
 class FindUserViewController: BaseViewController {
     @IBOutlet weak var loginInputField: UITextField!
-    
-    @IBAction func findUserButtom(_ sender: Any){
-        guard let login = loginInputField.text else {return}
-        if !login.isEmpty{
-            showAlertWith(title: login)
-            UserServices.getUser(nameOfUser: login)
-        }
-        else{
-            showErrorAlertWith(message: "Non valid")
-        }
-    }
+//
+//    @IBAction func findUserButtom(_ sender: Any){
+//        guard let login = loginInputField.text else {return}
+//        if !login.isEmpty{
+//            showAlertWith(title: login)
+//            UserServices.getUser(nameOfUser: login)
+//        }
+//        else{
+//            showErrorAlertWith(message: "Non valid")
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginInputField.placeholder = "Input student login"
+        
+//        loginInputField.placeholder = "Input student login"
         
         
-        AlamofireManager().createToken { (result) in
-            guard let token = result else {return}
-            let header = AlamofireManager.createHeader(token)
-            print(String(describing: header))
-        }
+             UserServices.getUser(nameOfUser: "vdemchen")
+
+        
+//        AlamofireManager().createToken { (result) in
+//            guard let token = result else {return}
+//            let header = AlamofireManager.createHeader(token)
+//            print(String(describing: header))
+//        }
     }
 }

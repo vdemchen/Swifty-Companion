@@ -10,8 +10,5 @@ import Foundation
 
 
 class User: NSObject{
-
-    struct parametres {
-        
-    }
+    
 }

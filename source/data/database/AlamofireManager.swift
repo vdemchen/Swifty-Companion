@@ -7,7 +7,7 @@
 //
 
 import Alamofire
-
+import Alamofire_SwiftyJSON
 
 class AlamofireManager{
     
@@ -51,14 +51,10 @@ class AlamofireManager{
         self.createToken(complition: { (token) in
             let  header = AlamofireManager.createHeader(token ?? "")
             
-            Alamofire.request(ModelsKeys.userGetLink, method: .get, headers: header).responseJSON { (response) in
-                guard response.result.isSuccess else {complition(nil, String(describing: response.result.error)); return}
-                guard let json = response.data else {return}
-                print(response.description)
-            }
+            Alamofire.request(ModelsKeys.userGetLink+userName, method: .get, headers: header).responseSwiftyJSON(completionHandler: { (dataResponse) in
+                guard let json = dataResponse.value else {complition(nil, nil); return}
+                JsonManager(inputJson: json)
+            })
         })
     }
-    
-    
-    
 }

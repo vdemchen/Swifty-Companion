@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "source/data/database/JSONManager.swift"
-            timestampString = "561045381.780252"
+            filePath = "source/data/database/AlamofireManager.swift"
+            timestampString = "561613811.542129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "init(inputJson:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getUserRequsest(userName:complition:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

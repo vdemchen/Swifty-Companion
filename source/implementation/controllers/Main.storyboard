@@ -37,9 +37,6 @@
                                 <rect key="frame" x="144" y="329" width="86" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="findUserButtom:" destination="MHN-bD-eVk" eventType="touchUpInside" id="RKg-OQ-7gF"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YoI-sk-Pct">
                                 <rect key="frame" x="112" y="255" width="150" height="50"/>
@@ -65,6 +62,7 @@
                     <navigationItem key="navigationItem" id="025-9B-zYW"/>
                     <connections>
                         <outlet property="loginInputField" destination="YoI-sk-Pct" id="pat-t6-oOg"/>
+                        <segue destination="GIp-Jq-Hn7" kind="show" identifier="UserInfoViewController" id="cl5-Hi-WSr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJq-5l-Nbl" userLabel="First Responder" sceneMemberID="firstResponder"/>

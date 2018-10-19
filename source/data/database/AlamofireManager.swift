@@ -1,13 +1,6 @@
-//
-//  AlamofireManager.swift
-//  SwiftyCompanion
-//
-//  Created by Vlad Demchenko on 10/10/18.
-//  Copyright © 2018 Vlad Demchenko. All rights reserved.
-//
-
 import Alamofire
 import Alamofire_SwiftyJSON
+import SwiftyJSON
 
 class AlamofireManager{
     
@@ -24,7 +17,8 @@ class AlamofireManager{
         Alamofire.request(ModelsKeys.tokenLink, method: .post, parameters: self.config).responseJSON { response in
             guard response.result.isSuccess else {print(String(describing: response.result.error)); return}
             guard let json = response.data  else {print(String(describing: response.result.error)); return}
-            do{
+            do
+            {
                 let tokenData = try self.decoder.decode(ModelsKeys.token_info.self, from: json)
                 self.token = tokenData.access_token
                 complition(tokenData.access_token)
@@ -51,9 +45,13 @@ class AlamofireManager{
         self.createToken(complition: { (token) in
             let  header = AlamofireManager.createHeader(token ?? "")
             
-            Alamofire.request(ModelsKeys.userGetLink+userName, method: .get, headers: header).responseSwiftyJSON(completionHandler: { (dataResponse) in
-                guard let json = dataResponse.value else {complition(nil, nil); return}
-                JsonManager(inputJson: json)
+            Alamofire.request(ModelsKeys.userGetLink+userName, method: .get, headers: header)
+                .responseSwiftyJSON(completionHandler: { (dataResponse) in
+                
+                    guard let json = dataResponse.value else {complition(nil, nil); return}
+                    
+                    JsonManager(inputJson: json)
+                    JsonManager.createCursus(cursusNumber: 0)
             })
         })
     }

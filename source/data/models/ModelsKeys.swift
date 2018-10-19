@@ -32,6 +32,8 @@ class ModelsKeys: NSObject
     static let keyAuthoriztion = "Authorization"
     static let keyAccept = "Accept"
     
+    static let keyPiscine = "piscine"
+    
     // Start JSON keys
     
     static let keyLastName = "last_name"

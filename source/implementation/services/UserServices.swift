@@ -11,7 +11,7 @@ import Foundation
 class UserServices: NSObject {
 
     class func getUser(userLogin: String) -> (){
-        AlamofireManager().getUserRequsest(userName: "vdemchen") { (result) in
+        AlamofireManager().getUserRequsest(userName: userLogin) { (result) in
             if result != nil{
                 print("Error\(#function, result)")
             }else {

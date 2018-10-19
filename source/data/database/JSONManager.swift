@@ -46,12 +46,16 @@ class JsonManager{
             piscines: nil
         )
         
-        if let skills = createSkillsArray(skillsJson: skills){
+        if let skills: [Skill] = createSkillsArray(skillsJson: skills){
             result.skills = skills
         }
         
-        if let projects = createProjectsArray(projectsJson: userProjects){
+        if let projects: [Project] = createProjectsArray(projectsJson: userProjects){
             result.projects = projects
+        }
+        
+        if let piscines: [Piscine] = createPiscineArray(projectsJson: userProjects){
+            result.piscines = piscines
         }
         
         return result
@@ -67,7 +71,6 @@ class JsonManager{
             )
             skills.append(skillsItem)
         }
-        
         return skills
     }
     
@@ -75,12 +78,14 @@ class JsonManager{
         var projects: [Project] = [Project]()
         
         for item in projectsJson{
-            guard let project = item[ModelsKeys.keyProjects].dictionary else {return nil}
-            if project[ModelsKeys.keyProjectsDetailParentId] == nil{
+            guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return nil}
+            
+            if project[ModelsKeys.keyProjectsDetailParentId]?.int == nil{
                 let project: Project = Project(
                     name: project[ModelsKeys.keyProjectsDetailName]?.string ?? "",
                     validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
-                    projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0
+                    projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0,
+                    projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0
                 )
                 projects.append(project)
             }
@@ -92,9 +97,57 @@ class JsonManager{
         var piscines: [Piscine] = [Piscine]()
         
         for item in projectsJson{
+            guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return nil}
+            guard let slug: String = project[ModelsKeys.keyProjectsDetailSlug]?.string else {return nil}
             
+            if slug.contains(ModelsKeys.keyPiscine){
+                guard let projectId = project[ModelsKeys.keyProjectsDetailId]?.int else {return nil}
+                if project[ModelsKeys.keyProjectsDetailParentId]?.int != nil{
+                    let piscine: Piscine = Piscine(
+                        name: findPiscineName(parentId: projectId, projects: projectsJson),
+                        days: groupPiscineDays(parentId: projectId,projects: projectsJson)
+                    )
+                    piscines.append(piscine)
+                }
+            }
         }
         
         return piscines
+    }
+    
+    class func groupPiscineDays(parentId: Int, projects: [JSON]) -> [Project]{
+        var piscineDays: [Project] = [Project]()
+        
+        for item in projects{
+            guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return [Project]()}
+            if project[ModelsKeys.keyProjectsDetailParentId]?.int == parentId{
+                let piscineDay: Project = Project(
+                    parentId: parentId,
+                    name: project[ModelsKeys.keyProjectsDetailName]?.string ?? "",
+                    validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
+                    projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0,
+                    projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0
+                )
+                piscineDays.append(piscineDay)
+            }
+        }
+        
+        return piscineDays
+    }
+    
+    class func findPiscineName(parentId: Int, projects: [JSON]) -> String{
+        var piscineName: String = ""
+        
+        for item in projects{
+            guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return ""}
+            guard let Id = project[ModelsKeys.keyProjectsDetailId]?.int else {return ""}
+            
+            if Id == parentId{
+                piscineName = project[ModelsKeys.keyProjectsDetailName]?.string ?? ""
+                break
+            }
+        }
+        
+        return piscineName
     }
 }

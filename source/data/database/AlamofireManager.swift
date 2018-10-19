@@ -39,18 +39,29 @@ class AlamofireManager{
     }
     
     
-    func getUserRequsest(userName: String, complition: @escaping(_ user: User?,_ error: String?)->()){
+    func getUserRequsest(userName: String, complition: @escaping(_ error: String?)->()){
         
         self.createToken(complition: { (token) in
-            let  header = AlamofireManager.createHeader(token ?? "")
-            print(2)
-            Alamofire.request(ModelsKeys.userGetLink+userName, method: .get, headers: header)
-                .responseSwiftyJSON(completionHandler: { (dataResponse) in
-                    
-                    guard let json = dataResponse.value else {complition(nil, nil); return}
-                    JsonManager.init(json)
-                    complition(User.shareUser(), nil)
-            })
+            if let token = token {
+                let  header = AlamofireManager.createHeader(token)
+                print(token)
+                Alamofire.request(
+                    ModelsKeys.userGetLink+userName,
+                    method: .get,
+                    headers: header
+                    )
+                    .responseSwiftyJSON(completionHandler: { (dataResponse) in
+                        if dataResponse.error == nil{
+                            guard let json = dataResponse.value
+                                else {
+                                    complition(String(describing:dataResponse.description))
+                                    return
+                            }
+                            JsonManager.init(json)
+                            complition(nil)
+                        }
+                    })
+            }
         })
     }
 }

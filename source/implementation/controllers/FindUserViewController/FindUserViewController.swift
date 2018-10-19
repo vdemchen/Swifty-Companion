@@ -17,8 +17,6 @@ class FindUserViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserServices.getUser(userLogin: "vdemchen") { (result) in
-            print(result)
-        }
+        UserServices.getUser(userLogin: "vdemchen")
     }
 }

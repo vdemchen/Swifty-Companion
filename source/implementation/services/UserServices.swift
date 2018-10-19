@@ -10,12 +10,12 @@ import Foundation
 
 class UserServices: NSObject {
 
-    class func getUser(userLogin: String, complition: @escaping(String)->()){
-        AlamofireManager().getUserRequsest(userName: userLogin) { (user, error) in
-            if error != nil{
-                complition(error ?? "")
-            }else{
-                complition("")
+    class func getUser(userLogin: String) -> (){
+        AlamofireManager().getUserRequsest(userName: "vdemchen") { (result) in
+            if result != nil{
+                print("Error\(#function, result)")
+            }else {
+             let user = User.shareUser()
             }
         }
     }

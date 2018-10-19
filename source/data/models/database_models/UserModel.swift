@@ -19,8 +19,18 @@ struct Parameters{
     init() {
         firstName = ""
         lastName = ""
+        firstName = ""
+        lastName = ""
         email = ""
         phoneNumber = ""
+        userImageUrl = ""
+        wallet = 0
+        poolYear = ""
+        poolMonth = ""
+        login = ""
+        grade = ""
+        campusLocation = ""
+        correctionPoint = 0
     }
 }
 
@@ -28,8 +38,8 @@ struct Cursus {
     var name: String
     var grade: String
     var level: Double
-    var projects: [Project]
-    var skills: [Skill]
+    var projects: [Project]?
+    var skills: [Skill]?
 }
 
 struct Project{
@@ -42,6 +52,16 @@ struct Project{
 struct Skill {
     var level: Double
     var name: String
+    
+    init() {
+        self.level = 0.0
+        self.name = ""
+    }
+    
+    init(level: Double, name: String) {
+        self.level = level
+        self.name = name
+    }
 }
 
 class User{

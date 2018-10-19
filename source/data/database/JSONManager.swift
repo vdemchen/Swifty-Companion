@@ -1,17 +1,20 @@
 import SwiftyJSON
 import Foundation
 
-class JsonManager: NSObject {
-
-    private static let userJson: JSON?
+class JsonManager{
     
-    init(inputJson: JSON){
-       
+    private static var userJson = JSON()
+    
+    init(_ inputJson: JSON) {
+        print(1)
+        JsonManager.userJson = inputJson
     }
-
-   static func getUserParameters() -> Parameters?{
+    
+//    private static func setUserJson(json: JSON){ self.userJson = json }
+    
+    static func getUserParameters() -> Parameters?{
         
-        var parameters: Parameters?
+        var parameters: Parameters()
         
         parameters?.firstName = self.userJson[ModelsKeys.keyFirstName].string ?? ""
         parameters?.lastName = self.userJson[ModelsKeys.keyLastName].string ?? ""
@@ -28,7 +31,7 @@ class JsonManager: NSObject {
         return parameters
     }
     
-   static func createCursus(cursusNumber: Int) -> Cursus?{
+    static func createCursus(cursusNumber: Int) -> Cursus?{
         
         var result: Cursus?
         guard let userCursus = self.userJson[ModelsKeys.keyUserCursus].array else {return nil}
@@ -42,11 +45,11 @@ class JsonManager: NSObject {
         if let skills = createSkillsArray(skillsJson: skills){
             result?.skills = skills
         }
-
+        
         return result
     }
     
-    func createSkillsArray(skillsJson: [JSON]) -> [Skill]?{
+    class func createSkillsArray(skillsJson: [JSON]) -> [Skill]?{
         var skills: [Skill]?
         
         for item in skillsJson{
@@ -59,10 +62,4 @@ class JsonManager: NSObject {
         
         return skills
     }
-    
-    
-//    func getUserProjects() -> [Project]{
-//
-//    }
-    
 }

@@ -15,6 +15,13 @@ struct Parameters{
     var grade: String
     var campusLocation: String
     var correctionPoint: Int
+    
+    init() {
+        firstName = ""
+        lastName = ""
+        email = ""
+        phoneNumber = ""
+    }
 }
 
 struct Cursus {
@@ -39,13 +46,28 @@ struct Skill {
 
 class User{
     
-    init(){
+    private static var user: User?
+    var parameters: Parameters?
+    var cursus42: Cursus?
+    var cursusC: Cursus?
+    
+    private init(){
         self.parameters = JsonManager.getUserParameters()
         self.cursus42 = JsonManager.createCursus(cursusNumber: 0)
         self.cursusC = JsonManager.createCursus(cursusNumber: 1)
     }
     
-    var parameters: Parameters?
-    var cursus42: Cursus?
-    var cursusC: Cursus?
+    static func shareUser() -> User {
+        if let user = self.user
+        {
+            return user
+        }
+        else
+        {
+            let newUser = User()
+            self.user = newUser
+            return newUser
+        }
+    }
+    
 }

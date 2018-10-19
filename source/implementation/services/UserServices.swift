@@ -10,11 +10,14 @@ import Foundation
 
 class UserServices: NSObject {
 
-    class func getUser(nameOfUser: String) -> User {
-        AlamofireManager().getUserRequsest(userName: nameOfUser) { (user, error) in
-            
+    class func getUser(userLogin: String, complition: @escaping(String)->()){
+        AlamofireManager().getUserRequsest(userName: userLogin) { (user, error) in
+            if error != nil{
+                complition(error ?? "")
+            }else{
+                complition("")
+            }
         }
-        return User()
     }
 }
 

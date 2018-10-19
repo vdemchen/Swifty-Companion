@@ -1,6 +1,5 @@
 import Alamofire
 import Alamofire_SwiftyJSON
-import SwiftyJSON
 
 class AlamofireManager{
     
@@ -44,14 +43,13 @@ class AlamofireManager{
         
         self.createToken(complition: { (token) in
             let  header = AlamofireManager.createHeader(token ?? "")
-            
+            print(2)
             Alamofire.request(ModelsKeys.userGetLink+userName, method: .get, headers: header)
                 .responseSwiftyJSON(completionHandler: { (dataResponse) in
-                
-                    guard let json = dataResponse.value else {complition(nil, nil); return}
                     
-                    JsonManager(inputJson: json)
-                    JsonManager.createCursus(cursusNumber: 0)
+                    guard let json = dataResponse.value else {complition(nil, nil); return}
+                    JsonManager.init(json)
+                    complition(User.shareUser(), nil)
             })
         })
     }

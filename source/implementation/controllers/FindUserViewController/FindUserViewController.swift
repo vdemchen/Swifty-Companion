@@ -1,10 +1,3 @@
-//
-//  FindUserViewController.swift
-//  SwiftyCompanion
-//
-//  Created by Vlad Demchenko on 10/10/18.
-//  Copyright © 2018 Vlad Demchenko. All rights reserved.
-//
 
 import UIKit
 
@@ -24,17 +17,8 @@ class FindUserViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        loginInputField.placeholder = "Input student login"
-        
-        
-             UserServices.getUser(nameOfUser: "vdemchen")
-
-        
-//        AlamofireManager().createToken { (result) in
-//            guard let token = result else {return}
-//            let header = AlamofireManager.createHeader(token)
-//            print(String(describing: header))
-//        }
+        UserServices.getUser(userLogin: "vdemchen") { (result) in
+            print(result)
+        }
     }
 }

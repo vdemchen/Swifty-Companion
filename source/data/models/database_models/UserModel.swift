@@ -22,7 +22,7 @@ struct Parameters{
         firstName = ""
         lastName = ""
         email = ""
-        phoneNumber = ""
+        phoneNumber = nil
         userImageUrl = ""
         wallet = 0
         poolYear = ""
@@ -40,13 +40,42 @@ struct Cursus {
     var level: Double
     var projects: [Project]?
     var skills: [Skill]?
+    var piscines: [Piscine]?
+}
+
+struct Piscine {
+    var piscineName: String
+    var piscineDays: [Project]
+    
+    init() {
+        self.piscineName = ""
+        self.piscineDays = [Project]()
+    }
+    
+    init(name: String, days: [Project]) {
+        self.piscineName = name
+        self.piscineDays = days
+    }
 }
 
 struct Project{
-    var parentId: Int
+    var parentId: Int?
     var name: String
     var validationStatus: Bool
     var projectMark: Int
+    
+    init() {
+        self.parentId = nil
+        self.name = ""
+        self.validationStatus = false
+        self.projectMark = 0
+    }
+    init(parentId: Int = nil, name: String, validationStatus: Bool, projectMark: Int) {
+        self.parentId = parentId
+        self.name = name
+        self.validationStatus = validationStatus
+        self.projectMark = projectMark
+    }
 }
 
 struct Skill {

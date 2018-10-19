@@ -34,16 +34,24 @@ class JsonManager{
         guard let skills = userCursus[cursusNumber][ModelsKeys.keyUserCursusSkills].array else {return nil}
         guard let cursus = userCursus[cursusNumber][ModelsKeys.keyUserCursusCursus].dictionary else {return nil}
         
+        guard let userProjects = self.userJson[ModelsKeys.keyProjects].array else {return nil}
+        
+        
         var result: Cursus = Cursus(
             name: cursus[ModelsKeys.keyUserCursusCursusName]?.string ?? "",
             grade: userCursus[cursusNumber][ModelsKeys.keyUserCursusGrade].string ?? "",
             level: userCursus[cursusNumber][ModelsKeys.keyUserCursusLevel].double ?? 0.0,
             projects: nil,
-            skills: nil
+            skills: nil,
+            piscines: nil
         )
         
         if let skills = createSkillsArray(skillsJson: skills){
             result.skills = skills
+        }
+        
+        if let projects = createProjectsArray(projectsJson: userProjects){
+            result.projects = projects
         }
         
         return result
@@ -61,5 +69,32 @@ class JsonManager{
         }
         
         return skills
+    }
+    
+    class func createProjectsArray(projectsJson: [JSON]) -> [Project]?{
+        var projects: [Project] = [Project]()
+        
+        for item in projectsJson{
+            guard let project = item[ModelsKeys.keyProjects].dictionary else {return nil}
+            if project[ModelsKeys.keyProjectsDetailParentId] == nil{
+                let project: Project = Project(
+                    name: project[ModelsKeys.keyProjectsDetailName]?.string ?? "",
+                    validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
+                    projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0
+                )
+                projects.append(project)
+            }
+        }
+        return projects
+    }
+    
+    class func createPiscineArray(projectsJson: [JSON]) -> [Piscine]?{
+        var piscines: [Piscine] = [Piscine]()
+        
+        for item in projectsJson{
+            
+        }
+        
+        return piscines
     }
 }

@@ -6,6 +6,7 @@ class FindUserViewController: BaseViewController {
     
     @IBAction func findUserButtom(_ sender: Any){
         ActivityIndicatorView.showActivity()
+        makeResponse(login: "vdemchen")
         guard let login = loginInputField.text else {return}
         if !login.isEmpty{
             makeResponse(login: login)
@@ -18,6 +19,7 @@ class FindUserViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.reloadInputViews()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

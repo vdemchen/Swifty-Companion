@@ -38,6 +38,17 @@ class AlamofireManager{
         return header
     }
     
+    class func downloadImage(_ imageUrl: String) -> UIImage?{
+        var image: UIImage?
+        
+        if let url = URL(string: imageUrl){
+                if let data = try? Data(contentsOf: url){
+                    image = UIImage(data: data)
+                }
+        }
+        return image
+    }
+    
     
     func getUserRequsest(userName: String, complition: @escaping(_ error: String?)->()){
         

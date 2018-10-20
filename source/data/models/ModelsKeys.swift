@@ -35,7 +35,7 @@ class ModelsKeys: NSObject
     static let keyPoolMonth = "pool_month"
     static let keyCorrectionPoint = "correction_point"
     static let keyWallet = "wallet"
-    static let keyPhoneNumber = "number"
+    static let keyPhoneNumber = "phone"
     static let keyLogin = "login"
     static let keyEmail = "email"
     

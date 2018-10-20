@@ -23,8 +23,10 @@ class JsonManager{
         parameters.poolYear = self.userJson[ModelsKeys.keyPoolYear].string ?? ""
         parameters.poolMonth = self.userJson[ModelsKeys.keyPoolMonth].string ?? ""
         parameters.login = self.userJson[ModelsKeys.keyLogin].string ?? ""
-        parameters.campusLocation = "UNIT Factory"
         
+        if let campus = self.userJson[ModelsKeys.keyCampus].array{
+            parameters.campusLocation = campus[0][ModelsKeys.keyCampusName].string ?? ""
+        }
         return parameters
     }
     

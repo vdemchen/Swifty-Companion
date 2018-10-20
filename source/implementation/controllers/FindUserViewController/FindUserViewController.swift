@@ -3,16 +3,16 @@ import UIKit
 
 class FindUserViewController: BaseViewController {
     @IBOutlet weak var loginInputField: UITextField!
-
+    
     @IBAction func findUserButtom(_ sender: Any){
+//        ActivityIndicatorView.showActivity()
         guard let login = loginInputField.text else {return}
         if !login.isEmpty{
-            UserServices.getUser(userLogin: login)
-            ActivityIndicatorView.showActivity()
-            self.performSegue(withIdentifier: UserInfoViewController.className(), sender: nil)
+            makeResponse(login: login)
         }
         else{
-            showErrorAlertWith(message: "Non valid")
+            showErrorAlertWith(message: "Not valid")
+//            ActivityIndicatorView.hideAllActivity()
         }
     }
     
@@ -20,4 +20,16 @@ class FindUserViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    
+    private func makeResponse(login: String){
+        AlamofireManager().getUserRequsest(userName: login) { (result) in
+            if result != nil{
+                guard let error: String = result else {return}
+                self.showErrorAlertWith(message: error)
+            }else {
+                let _ :User = User.shareUser()
+                self.performSegue(withIdentifier: UserInfoViewController.className(), sender: nil)
+            }
+        }
+    }
 }

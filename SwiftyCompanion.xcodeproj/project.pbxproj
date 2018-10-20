@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		245FEDF5216E73E70078BC59 /* FindUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245FEDF4216E73E70078BC59 /* FindUserViewController.swift */; };
 		24852BBB2179587F006161CF /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24852BBA2179587F006161CF /* JSONManager.swift */; };
+		24860A3B217AADB3001A9C98 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24860A39217AADB3001A9C98 /* ProjectsTableViewCell.swift */; };
+		24860A3C217AADB3001A9C98 /* ProjectsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */; };
+		24860A3F217AADC7001A9C98 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24860A3D217AADC7001A9C98 /* SkillsTableViewCell.swift */; };
+		24860A40217AADC7001A9C98 /* SkillsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24860A3E217AADC7001A9C98 /* SkillsTableViewCell.xib */; };
 		24F2E7BE216DA168003A7E0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7BD216DA168003A7E0A /* AppDelegate.swift */; };
 		24F2E7C5216DA169003A7E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F2E7C4216DA169003A7E0A /* Assets.xcassets */; };
 		24F2E800216DA374003A7E0A /* ModelsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7DC216DA374003A7E0A /* ModelsKeys.swift */; };
@@ -33,6 +37,10 @@
 /* Begin PBXFileReference section */
 		245FEDF4216E73E70078BC59 /* FindUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindUserViewController.swift; sourceTree = "<group>"; };
 		24852BBA2179587F006161CF /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		24860A39217AADB3001A9C98 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
+		24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectsTableViewCell.xib; sourceTree = "<group>"; };
+		24860A3D217AADC7001A9C98 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
+		24860A3E217AADC7001A9C98 /* SkillsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillsTableViewCell.xib; sourceTree = "<group>"; };
 		24F2E7BA216DA168003A7E0A /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F2E7BD216DA168003A7E0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F2E7C4216DA169003A7E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,6 +249,8 @@
 		24F2E81A216DA3C2003A7E0A /* SkillsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				24860A3D217AADC7001A9C98 /* SkillsTableViewCell.swift */,
+				24860A3E217AADC7001A9C98 /* SkillsTableViewCell.xib */,
 			);
 			path = SkillsTableViewCell;
 			sourceTree = "<group>";
@@ -248,6 +258,8 @@
 		24F2E81B216DA3DA003A7E0A /* ProjectTableVIewCell */ = {
 			isa = PBXGroup;
 			children = (
+				24860A39217AADB3001A9C98 /* ProjectsTableViewCell.swift */,
+				24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */,
 			);
 			path = ProjectTableVIewCell;
 			sourceTree = "<group>";
@@ -334,7 +346,9 @@
 				24F2E816216DA374003A7E0A /* Main.storyboard in Resources */,
 				24F2E7C5216DA169003A7E0A /* Assets.xcassets in Resources */,
 				24F2E808216DA374003A7E0A /* ActivityIndicatorView.xib in Resources */,
+				24860A40217AADC7001A9C98 /* SkillsTableViewCell.xib in Resources */,
 				24F2E817216DA374003A7E0A /* Launch Screen.storyboard in Resources */,
+				24860A3C217AADB3001A9C98 /* ProjectsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,8 +405,10 @@
 				24F2E81D216DA3FD003A7E0A /* UserInfoViewController.swift in Sources */,
 				24F2E804216DA374003A7E0A /* NSObjectExtension.swift in Sources */,
 				24F2E80D216DA374003A7E0A /* UserServices.swift in Sources */,
+				24860A3B217AADB3001A9C98 /* ProjectsTableViewCell.swift in Sources */,
 				24F2E807216DA374003A7E0A /* StringExtension.swift in Sources */,
 				24F2E800216DA374003A7E0A /* ModelsKeys.swift in Sources */,
+				24860A3F217AADC7001A9C98 /* SkillsTableViewCell.swift in Sources */,
 				24F2E801216DA374003A7E0A /* UserModel.swift in Sources */,
 				24F2E80A216DA374003A7E0A /* BaseViewController.swift in Sources */,
 				24F2E7BE216DA168003A7E0A /* AppDelegate.swift in Sources */,

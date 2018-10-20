@@ -1,11 +1,3 @@
-//
-//  StringExtension.swift
-//  MeetingCost
-//
-//  Created by AleksandrVnukov on 9/3/18.
-//  Copyright © 2018 MeetingCostCalculator. All rights reserved.
-//
-
 import Foundation
 
 extension String

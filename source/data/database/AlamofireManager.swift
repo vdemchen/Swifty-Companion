@@ -57,8 +57,12 @@ class AlamofireManager{
                                     complition(String(describing:dataResponse.description))
                                     return
                             }
+                            if json.count == 0{
+                                complition("Haven`t user")
+                            } else {
                             JsonManager.init(json)
                             complition(nil)
+                            }
                         }
                     })
             }

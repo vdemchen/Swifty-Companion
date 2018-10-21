@@ -115,9 +115,6 @@ class JsonManager{
                 }
             }
         }
-        piscines =  piscines.sorted { (first, second ) -> Bool in
-            
-        }
         
         return piscines
     }

@@ -1,6 +1,6 @@
 import UIKit
 
-class PiscinesTableViewCell: BaseTableViewCell {
+class PiscineDayTableViewCell: BaseTableViewCell {
     @IBOutlet weak var piscineDay: UILabel!
     @IBOutlet weak var piscineMark: UILabel!
     

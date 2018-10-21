@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="213" id="KGk-i7-Jjw" customClass="PisicineTableViewCell" customModule="SwiftyCompanion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="213"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="212.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fro-LR-G0R">
+                        <rect key="frame" x="95" y="16" width="48" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="dF0-Ts-kvj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Piscine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5e3-SV-Csj">
+                        <rect key="frame" x="25" y="16" width="55" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="nc8-vy-1CN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5C-VX-vQ9">
+                        <rect key="frame" x="329.5" y="16" width="38.5" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="eVP-Pq-VFH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F3u-qG-3vL">
+                        <rect key="frame" x="25" y="46" width="343" height="150"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="Tec-BK-9qR"/>
+                        </constraints>
+                    </tableView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Z5C-VX-vQ9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fro-LR-G0R" secondAttribute="trailing" constant="5" id="3Pq-Pm-aqc"/>
+                    <constraint firstItem="F3u-qG-3vL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="7z9-49-6wg"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="F3u-qG-3vL" secondAttribute="trailing" constant="5" id="88i-VY-aTQ"/>
+                    <constraint firstItem="F3u-qG-3vL" firstAttribute="top" secondItem="fro-LR-G0R" secondAttribute="bottom" constant="5" id="ITb-l1-gk7"/>
+                    <constraint firstItem="fro-LR-G0R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="U8q-9f-ZCh"/>
+                    <constraint firstItem="Z5C-VX-vQ9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Wua-KF-bAy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="F3u-qG-3vL" secondAttribute="bottom" constant="5" id="X7m-rg-Clx"/>
+                    <constraint firstItem="5e3-SV-Csj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="XAm-o1-LGP"/>
+                    <constraint firstItem="5e3-SV-Csj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="g9T-OL-bu5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Z5C-VX-vQ9" secondAttribute="trailing" constant="5" id="uVi-l4-0Bw"/>
+                    <constraint firstItem="fro-LR-G0R" firstAttribute="leading" secondItem="5e3-SV-Csj" secondAttribute="trailing" constant="15" id="yu4-Sd-xx8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="piscineDaysTableView" destination="F3u-qG-3vL" id="bxp-9e-BfB"/>
+                <outlet property="piscineLabel" destination="5e3-SV-Csj" id="lev-Mm-HRF"/>
+                <outlet property="piscineMark" destination="Z5C-VX-vQ9" id="5eD-j7-NtE"/>
+                <outlet property="piscineStatus" destination="fro-LR-G0R" id="oaW-wp-dSq"/>
+            </connections>
+            <point key="canvasLocation" x="196" y="230.73463268365819"/>
+        </tableViewCell>
+    </objects>
+</document>

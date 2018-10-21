@@ -6,8 +6,8 @@ class FindUserViewController: BaseViewController {
     
     @IBAction func findUserButtom(_ sender: Any){
         ActivityIndicatorView.showActivity()
-//        guard let login = loginInputField.text else {return}
-        let login = "vdemchen"
+        guard let login = loginInputField.text else {return}
+//        let login = "vdemchen"
         if !login.isEmpty{
             makeResponse(login: login)
         }

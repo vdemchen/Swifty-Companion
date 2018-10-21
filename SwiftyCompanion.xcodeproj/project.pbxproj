@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		241E4324217B932F0036597F /* PiscinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E4322217B932F0036597F /* PiscinesTableViewCell.swift */; };
-		241E4325217B932F0036597F /* PiscinesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 241E4323217B932F0036597F /* PiscinesTableViewCell.xib */; };
+		241E4325217B932F0036597F /* PiscineDayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 241E4323217B932F0036597F /* PiscineDayTableViewCell.xib */; };
 		245FEDF5216E73E70078BC59 /* FindUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245FEDF4216E73E70078BC59 /* FindUserViewController.swift */; };
+		24823621217C7076001FCDD8 /* PiscineDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24823620217C7076001FCDD8 /* PiscineDayTableViewCell.swift */; };
+		24823624217C7123001FCDD8 /* PisicineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24823622217C7123001FCDD8 /* PisicineTableViewCell.swift */; };
+		24823625217C7123001FCDD8 /* PisicineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24823623217C7123001FCDD8 /* PisicineTableViewCell.xib */; };
 		24852BBB2179587F006161CF /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24852BBA2179587F006161CF /* JSONManager.swift */; };
 		24860A3B217AADB3001A9C98 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24860A39217AADB3001A9C98 /* ProjectsTableViewCell.swift */; };
 		24860A3C217AADB3001A9C98 /* ProjectsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */; };
@@ -37,9 +39,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		241E4322217B932F0036597F /* PiscinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiscinesTableViewCell.swift; sourceTree = "<group>"; };
-		241E4323217B932F0036597F /* PiscinesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PiscinesTableViewCell.xib; sourceTree = "<group>"; };
+		241E4323217B932F0036597F /* PiscineDayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PiscineDayTableViewCell.xib; sourceTree = "<group>"; };
 		245FEDF4216E73E70078BC59 /* FindUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindUserViewController.swift; sourceTree = "<group>"; };
+		24823620217C7076001FCDD8 /* PiscineDayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiscineDayTableViewCell.swift; sourceTree = "<group>"; };
+		24823622217C7123001FCDD8 /* PisicineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PisicineTableViewCell.swift; sourceTree = "<group>"; };
+		24823623217C7123001FCDD8 /* PisicineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PisicineTableViewCell.xib; sourceTree = "<group>"; };
 		24852BBA2179587F006161CF /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		24860A39217AADB3001A9C98 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectsTableViewCell.xib; sourceTree = "<group>"; };
@@ -82,6 +86,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24823627217C713D001FCDD8 /* PiscineDayCell */ = {
+			isa = PBXGroup;
+			children = (
+				24823620217C7076001FCDD8 /* PiscineDayTableViewCell.swift */,
+				241E4323217B932F0036597F /* PiscineDayTableViewCell.xib */,
+			);
+			path = PiscineDayCell;
+			sourceTree = "<group>";
+		};
+		24823628217C7157001FCDD8 /* ProjectCell */ = {
+			isa = PBXGroup;
+			children = (
+				24860A39217AADB3001A9C98 /* ProjectsTableViewCell.swift */,
+				24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */,
+			);
+			path = ProjectCell;
+			sourceTree = "<group>";
+		};
+		24823629217C716C001FCDD8 /* PiscineCell */ = {
+			isa = PBXGroup;
+			children = (
+				24823622217C7123001FCDD8 /* PisicineTableViewCell.swift */,
+				24823623217C7123001FCDD8 /* PisicineTableViewCell.xib */,
+			);
+			path = PiscineCell;
+			sourceTree = "<group>";
+		};
 		24860A41217B6EFD001A9C98 /* SkillsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,10 +293,9 @@
 		24F2E81B216DA3DA003A7E0A /* ProjectsTableVIewCell */ = {
 			isa = PBXGroup;
 			children = (
-				24860A39217AADB3001A9C98 /* ProjectsTableViewCell.swift */,
-				24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */,
-				241E4322217B932F0036597F /* PiscinesTableViewCell.swift */,
-				241E4323217B932F0036597F /* PiscinesTableViewCell.xib */,
+				24823627217C713D001FCDD8 /* PiscineDayCell */,
+				24823628217C7157001FCDD8 /* ProjectCell */,
+				24823629217C716C001FCDD8 /* PiscineCell */,
 			);
 			path = ProjectsTableVIewCell;
 			sourceTree = "<group>";
@@ -351,9 +381,10 @@
 				24F2E80C216DA374003A7E0A /* BaseTableViewCell.xib in Resources */,
 				24F2E816216DA374003A7E0A /* Main.storyboard in Resources */,
 				24F2E7C5216DA169003A7E0A /* Assets.xcassets in Resources */,
-				241E4325217B932F0036597F /* PiscinesTableViewCell.xib in Resources */,
+				241E4325217B932F0036597F /* PiscineDayTableViewCell.xib in Resources */,
 				24F2E808216DA374003A7E0A /* ActivityIndicatorView.xib in Resources */,
 				24860A45217B6F1C001A9C98 /* SkillsTableViewCell.xib in Resources */,
+				24823625217C7123001FCDD8 /* PisicineTableViewCell.xib in Resources */,
 				24F2E817216DA374003A7E0A /* Launch Screen.storyboard in Resources */,
 				24860A3C217AADB3001A9C98 /* ProjectsTableViewCell.xib in Resources */,
 			);
@@ -417,11 +448,12 @@
 				24F2E800216DA374003A7E0A /* ModelsKeys.swift in Sources */,
 				24860A44217B6F1C001A9C98 /* SkillsTableViewCell.swift in Sources */,
 				24F2E801216DA374003A7E0A /* UserModel.swift in Sources */,
+				24823624217C7123001FCDD8 /* PisicineTableViewCell.swift in Sources */,
 				24F2E80A216DA374003A7E0A /* BaseViewController.swift in Sources */,
-				241E4324217B932F0036597F /* PiscinesTableViewCell.swift in Sources */,
 				24F2E7BE216DA168003A7E0A /* AppDelegate.swift in Sources */,
 				245FEDF5216E73E70078BC59 /* FindUserViewController.swift in Sources */,
 				24F2E809216DA374003A7E0A /* ActivityIndicatorView.swift in Sources */,
+				24823621217C7076001FCDD8 /* PiscineDayTableViewCell.swift in Sources */,
 				24F2E802216DA374003A7E0A /* UIAlertControllerExtension.swift in Sources */,
 				24F2E805216DA374003A7E0A /* UIApplicationExtension.swift in Sources */,
 				24F2E81F216DA4EB003A7E0A /* AlamofireManager.swift in Sources */,
@@ -555,6 +587,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZPKV52D2F2;
 				INFOPLIST_FILE = "$(SRCROOT)/project/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -574,6 +607,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZPKV52D2F2;
 				INFOPLIST_FILE = "$(SRCROOT)/project/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

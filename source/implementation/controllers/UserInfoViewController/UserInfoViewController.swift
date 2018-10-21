@@ -3,6 +3,7 @@ import UIKit
 class UserInfoViewController: BaseViewController {
     
     let user: User = User.shareUser()
+    var tapOnRow: (Int, Bool) = (0, false)
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var correctionPointLabel: UILabel!
@@ -43,8 +44,8 @@ class UserInfoViewController: BaseViewController {
         self.projectsTableView.delegate = self as UITableViewDelegate
         self.projectsTableView.register(ProjectsTableViewCell.nib(),
                                         forCellReuseIdentifier: ProjectsTableViewCell.identifier())
-        self.projectsTableView.register(PiscinesTableViewCell.nib(),
-                                        forCellReuseIdentifier: PiscinesTableViewCell.identifier())
+        self.projectsTableView.register(PiscineDayTableViewCell.nib(),
+                                        forCellReuseIdentifier: PiscineDayTableViewCell.identifier())
     }
     
     private func setSkillsTableView(){
@@ -105,16 +106,12 @@ extension UserInfoViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count: Int = 1
         
+        
         if tableView == self.projectsTableView{
-            guard let piscines =  self.user.cursus42?.piscines else {return 1}
-            
-            piscines.forEach { (item) in
-                if item.piscineName == user.cursus42?.projects?[section].name {count = item.piscineDays.count}
+            if tapOnRow.1 == true{
+                count = 2
             }
         }
-        
-        
-        
         return count
     }
     
@@ -134,46 +131,51 @@ extension UserInfoViewController: UITableViewDataSource{
         }
         
         if tableView == self.projectsTableView{
-            print(indexPath)
-            if indexPath.row == 0
-            {
-                let projectCell = tableView.dequeueReusableCell(withIdentifier: ProjectsTableViewCell.className())
-                    as! ProjectsTableViewCell
-                if let project: Project = self.user.cursus42?.projects?[indexPath.section]{
-                    projectCell.projectName.text = project.name
-                    projectCell.projectMark.text = String(project.projectMark)
-                    cell = projectCell as UITableViewCell
+            let projectCell = tableView.dequeueReusableCell(withIdentifier: ProjectsTableViewCell.className())
+                as! ProjectsTableViewCell
+            if !tapOnRow.1{
+                if let projects: Project = self.user.cursus42?.projects?[indexPath.section]{
+                    projectCell.projectName.text = projects.name
+                    projectCell.projectMark.text = String(projects.projectMark)
                 }
+                cell = projectCell as UITableViewCell
             }
-            else {
-                let piscineCell = tableView.dequeueReusableCell(withIdentifier: PiscinesTableViewCell.className())
-                    as! PiscinesTableViewCell
-                if let piscines: [Piscine] = self.user.cursus42?.piscines{
-                    piscines.forEach { (item) in
-                        if item.piscineName == self.user.cursus42?.projects?[indexPath.section].name{
-                            piscineCell.piscineDay.text =  item.piscineDays[indexPath.row].name
-                            piscineCell.piscineMark.text = String(item.piscineDays[indexPath.row].projectMark)
-                            cell = piscineCell as UITableViewCell
+            if tapOnRow.1{
+                if indexPath.section == tapOnRow.0{
+                    let piscineCell = tableView.dequeueReusableCell(withIdentifier: PisicineTableViewCell.className()) as! PisicineTableViewCell
+                    if let projects: Project = self.user.cursus42?.projects?[indexPath.section]{
+                        piscineCell.piscineLabel.text = projects.name
+                        piscineCell.piscineMark.text = String(projects.projectMark)
+                        print(tapOnRow)
+                        if let piscines: [Piscine] = self.user.cursus42?.piscines{
+                            //                            let piscine = piscines.first { (item) -> Bool in item.piscineName == projects.name }
+                            //                            if let piscine = piscine {
+                            //                                let _ = piscineCell.piscineDaysTableView.numberOfRows(inSection: piscine.piscineDays.count)
+                            //                                piscineCell.piscineDaysTableView.dequeueReusableCell(withIdentifier: PiscineDayTableViewCell.className())
+                            //                            }
                         }
+                        cell = piscineCell as UITableViewCell
                     }
                 }
             }
         }
-        
         return cell!
     }
 }
-    
-    extension UserInfoViewController: UITableViewDelegate{
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
-            if tableView == self.projectsTableView{
-                print(indexPath)
-                if indexPath.row == 0{
-                    
-                }
-            }
-        }
-}
 
+
+
+extension UserInfoViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView == self.projectsTableView{
+            self.tapOnRow.0 = indexPath.section
+            if user.cursus42?.projects?[indexPath.section].slug.contains(ModelsKeys.keyPiscine) ?? false {
+                self.tapOnRow.1 = true
+            }
+            
+        }
+        tableView.reloadData()
+    }
+}

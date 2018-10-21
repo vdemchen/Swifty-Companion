@@ -6,8 +6,8 @@ class FindUserViewController: BaseViewController {
     
     @IBAction func findUserButtom(_ sender: Any){
         ActivityIndicatorView.showActivity()
-        makeResponse(login: "vdemchen")
-        guard let login = loginInputField.text else {return}
+//        guard let login = loginInputField.text else {return}
+        let login = "vdemchen"
         if !login.isEmpty{
             makeResponse(login: login)
         }
@@ -32,7 +32,6 @@ class FindUserViewController: BaseViewController {
                 ActivityIndicatorView.hideAllActivity()
                 self.showErrorAlertWith(message: error)
             }else {
-                let _ :User = User.shareUser()
                 self.performSegue(withIdentifier: UserInfoViewController.className(), sender: nil)
             }
         }

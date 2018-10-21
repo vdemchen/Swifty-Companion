@@ -201,10 +201,18 @@
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ewi-uk-3jj">
                                                 <rect key="frame" x="25" y="192" width="325" height="2"/>
                                             </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5p-ZC-xTr">
+                                                <rect key="frame" x="25" y="179.5" width="325" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.2886202335357666" green="0.66975748538970947" blue="0.60665661096572876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="HdH-lL-Vjn" firstAttribute="leading" secondItem="nLq-JX-wzb" secondAttribute="leading" id="3f3-ex-oHy"/>
+                                            <constraint firstItem="HdH-lL-Vjn" firstAttribute="top" secondItem="I5p-ZC-xTr" secondAttribute="bottom" constant="43" id="DTI-6j-h3X"/>
+                                            <constraint firstItem="I5p-ZC-xTr" firstAttribute="trailing" secondItem="HdH-lL-Vjn" secondAttribute="trailing" id="DgE-Th-NYY"/>
                                             <constraint firstItem="HdH-lL-Vjn" firstAttribute="top" secondItem="JX3-1c-Ulc" secondAttribute="top" constant="243" id="FJZ-Tp-2Az"/>
                                             <constraint firstItem="rqq-in-frJ" firstAttribute="top" secondItem="JX3-1c-Ulc" secondAttribute="top" constant="20" id="N8g-vp-3Gq"/>
                                             <constraint firstItem="rqq-in-frJ" firstAttribute="leading" secondItem="HdH-lL-Vjn" secondAttribute="leading" id="Oav-Ai-QSp"/>
@@ -212,8 +220,10 @@
                                             <constraint firstItem="ewi-uk-3jj" firstAttribute="leading" secondItem="rqq-in-frJ" secondAttribute="leading" id="UZS-tb-uqS"/>
                                             <constraint firstItem="ewi-uk-3jj" firstAttribute="width" secondItem="rqq-in-frJ" secondAttribute="width" id="Zv1-ys-QgP"/>
                                             <constraint firstItem="HdH-lL-Vjn" firstAttribute="top" secondItem="rqq-in-frJ" secondAttribute="bottom" constant="95" id="a8K-JI-Fel"/>
+                                            <constraint firstItem="I5p-ZC-xTr" firstAttribute="leading" secondItem="HdH-lL-Vjn" secondAttribute="leading" id="dSm-zr-3K8"/>
                                             <constraint firstItem="rqq-in-frJ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="JX3-1c-Ulc" secondAttribute="leading" constant="25" id="eIw-IQ-zsf"/>
                                             <constraint firstItem="nLq-JX-wzb" firstAttribute="top" secondItem="HdH-lL-Vjn" secondAttribute="bottom" constant="75" id="hij-Bt-wRa"/>
+                                            <constraint firstItem="I5p-ZC-xTr" firstAttribute="width" secondItem="HdH-lL-Vjn" secondAttribute="width" id="kAY-D3-x7K"/>
                                             <constraint firstItem="ewi-uk-3jj" firstAttribute="trailing" secondItem="rqq-in-frJ" secondAttribute="trailing" id="laA-NZ-RYQ"/>
                                             <constraint firstItem="rqq-in-frJ" firstAttribute="centerX" secondItem="JX3-1c-Ulc" secondAttribute="centerX" id="sPa-uk-r68"/>
                                             <constraint firstItem="ewi-uk-3jj" firstAttribute="top" secondItem="rqq-in-frJ" secondAttribute="bottom" constant="44" id="sdJ-pV-sWG"/>
@@ -246,6 +256,7 @@
                         <outlet property="correctionPointLabel" destination="61i-cD-PaE" id="XWl-bb-Zlp"/>
                         <outlet property="fullNameLabel" destination="FMr-N4-A0C" id="9Jp-7s-Md1"/>
                         <outlet property="gradeLabel" destination="MZW-9N-sTe" id="omZ-Uf-5eE"/>
+                        <outlet property="levelPoints" destination="I5p-ZC-xTr" id="9hp-5k-QAy"/>
                         <outlet property="levelProgresBar" destination="ewi-uk-3jj" id="BgU-6R-bnK"/>
                         <outlet property="loginLabel" destination="kPR-VK-JJq" id="8vX-bd-SNA"/>
                         <outlet property="poolLabel" destination="ums-gS-eTh" id="iz7-9w-3Fb"/>
@@ -258,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTY-Im-FgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1291.875" y="-413.02816901408454"/>
+            <point key="canvasLocation" x="1290.4000000000001" y="-413.3433283358321"/>
         </scene>
     </scenes>
 </document>

@@ -64,6 +64,7 @@ struct Project{
     var validationStatus: Bool
     var projectMark: Int
     var projectId: Int
+    var slug: String
     
     init() {
         self.parentId = 0
@@ -71,13 +72,15 @@ struct Project{
         self.validationStatus = false
         self.projectMark = 0
         self.projectId = 0
+        self.slug = ""
     }
-    init(parentId: Int? = 0, name: String, validationStatus: Bool, projectMark: Int, projectId: Int) {
+    init(parentId: Int? = 0, name: String, validationStatus: Bool, projectMark: Int, projectId: Int, slug: String) {
         self.parentId = parentId
         self.name = name
         self.validationStatus = validationStatus
         self.projectMark = projectMark
         self.projectId = projectId
+        self.slug = slug
     }
 }
 

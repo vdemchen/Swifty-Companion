@@ -55,11 +55,9 @@ class JsonManager{
         if let projects: [Project] = createProjectsArray(projectsJson: userProjects){
             result.projects = projects
         }
-        
         if let piscines: [Piscine] = createPiscineArray(projectsJson: userProjects){
             result.piscines = piscines
         }
-        
         return result
     }
     
@@ -81,13 +79,14 @@ class JsonManager{
         
         for item in projectsJson{
             guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return nil}
-            
-            if project[ModelsKeys.keyProjectsDetailParentId]?.int == nil{
+            if project[ModelsKeys.keyProjectsDetailParentId]?.int == nil
+                && item[ModelsKeys.keyCursusIds].array?[0] == 1{
                 let project: Project = Project(
                     name: project[ModelsKeys.keyProjectsDetailName]?.string ?? "",
                     validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
                     projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0,
-                    projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0
+                    projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0,
+                    slug: item[ModelsKeys.keyProjectsDetailSlug].string ?? ""
                 )
                 projects.append(project)
             }
@@ -98,43 +97,29 @@ class JsonManager{
     class func createPiscineArray(projectsJson: [JSON]) -> [Piscine]?{
         var piscines: [Piscine] = [Piscine]()
         
-        for item in projectsJson{
-            guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return nil}
-            guard let slug: String = project[ModelsKeys.keyProjectsDetailSlug]?.string else {return nil}
+        projectsJson.forEach(){item in
+            guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return}
+            guard let slug: String = project[ModelsKeys.keyProjectsDetailSlug]?.string else {return}
             
             if slug.contains(ModelsKeys.keyPiscine){
-                guard let projectId = project[ModelsKeys.keyProjectsDetailId]?.int else {return nil}
-                if project[ModelsKeys.keyProjectsDetailParentId]?.int != nil{
-                    let piscine: Piscine = Piscine(
-                        name: findPiscineName(parentId: projectId, projects: projectsJson),
-                        days: groupPiscineDays(parentId: projectId,projects: projectsJson)
-                    )
-                    piscines.append(piscine)
+                guard let projectId = project[ModelsKeys.keyProjectsDetailParentId]?.int else {return}
+                
+                if project[ModelsKeys.keyProjectsDetailParentId]?.int != nil
+                    && item[ModelsKeys.keyCursusIds].array?[0] == 1{
+                    let name: String = findPiscineName(parentId: projectId, projects: projectsJson)
+                    let days: [Project] = getPiscineDays(parentId: projectId, projects: projectsJson)
+                    let piscine: Piscine = Piscine(name: name, days: days)
+                    if !piscines.contains(where: { (Piscine) -> Bool in Piscine.piscineName == name}){
+                        piscines.append(piscine)
+                    }
                 }
             }
         }
-        
-        return piscines
-    }
-    
-    class func groupPiscineDays(parentId: Int, projects: [JSON]) -> [Project]{
-        var piscineDays: [Project] = [Project]()
-        
-        for item in projects{
-            guard let project = item[ModelsKeys.keyProjectsDetail].dictionary else {return [Project]()}
-            if project[ModelsKeys.keyProjectsDetailParentId]?.int == parentId{
-                let piscineDay: Project = Project(
-                    parentId: parentId,
-                    name: project[ModelsKeys.keyProjectsDetailName]?.string ?? "",
-                    validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
-                    projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0,
-                    projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0
-                )
-                piscineDays.append(piscineDay)
-            }
+        piscines =  piscines.sorted { (first, second ) -> Bool in
+            
         }
         
-        return piscineDays
+        return piscines
     }
     
     class func findPiscineName(parentId: Int, projects: [JSON]) -> String{
@@ -149,7 +134,27 @@ class JsonManager{
                 break
             }
         }
-        
         return piscineName
+    }
+    
+    class func getPiscineDays(parentId: Int, projects: [JSON]) -> [Project]{
+        var piscine: [Project] = [Project]()
+        
+        projects.forEach { (item) in
+            if let project = item[ModelsKeys.keyProjectsDetail].dictionary{
+                if project[ModelsKeys.keyProjectsDetailParentId]?.int == parentId{
+                    let day: Project = Project(
+                        parentId: parentId,
+                        name: project[ModelsKeys.keyProjectsDetailName]?.string ?? "",
+                        validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
+                        projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0,
+                        projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0,
+                        slug: item[ModelsKeys.keyProjectsDetailSlug].string ?? ""
+                    )
+                    piscine.append(day)
+                }
+            }
+        }
+        return piscine
     }
 }

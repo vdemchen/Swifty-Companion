@@ -14,6 +14,7 @@ class UserInfoViewController: BaseViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var levelProgresBar: UIProgressView!
+    @IBOutlet weak var levelPoints: UILabel!
     
     
     @IBOutlet weak var projectsTableView: UITableView!
@@ -21,26 +22,36 @@ class UserInfoViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUserProfile()
         
         self.setSkillsTableView()
         self.setProjectsTableView()
-        self.setUserProfile()
+        
         
         ActivityIndicatorView.hideAllActivity()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.projectsTableView.reloadData()
+        self.skillsTableView.reloadData()
+    }
+    
     private func setProjectsTableView(){
         self.projectsTableView.dataSource = self as UITableViewDataSource
+        self.projectsTableView.delegate = self as UITableViewDelegate
         self.projectsTableView.register(ProjectsTableViewCell.nib(),
-                                   forCellReuseIdentifier: ProjectsTableViewCell.identifier())
+                                        forCellReuseIdentifier: ProjectsTableViewCell.identifier())
         self.projectsTableView.register(PiscinesTableViewCell.nib(),
-                                   forCellReuseIdentifier: PiscinesTableViewCell.identifier())
+                                        forCellReuseIdentifier: PiscinesTableViewCell.identifier())
     }
     
     private func setSkillsTableView(){
         self.skillsTableView.dataSource = self as UITableViewDataSource
+        self.skillsTableView.delegate = self as UITableViewDelegate
         self.skillsTableView.register(SkillsTableViewCell.nib(),
-                                 forCellReuseIdentifier: SkillsTableViewCell.identifier())
+                                      forCellReuseIdentifier: SkillsTableViewCell.identifier())
     }
     
     private func setUserProfile(){
@@ -63,7 +74,8 @@ class UserInfoViewController: BaseViewController {
         } else {
             self.userPhoneNumberLabel.text = "no number"
         }
-        self.levelProgresBar.setProgress(Float(level / 20), animated: false)
+        self.levelProgresBar.setProgress(Float(level / 100), animated: false)
+        self.levelPoints.text = String(format: "level: %.2f", level)
         self.correctionPointLabel.text = "CP: " +  String(self.user.parameters?.correctionPoint ?? 0)
         self.loginLabel.text = self.user.parameters?.login
         self.userEmailLabel.text = self.user.parameters?.email
@@ -75,7 +87,8 @@ class UserInfoViewController: BaseViewController {
 }
 
 extension UserInfoViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         var count: Int?
         
         if tableView == self.projectsTableView{
@@ -89,6 +102,22 @@ extension UserInfoViewController: UITableViewDataSource{
         return count!
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count: Int = 1
+        
+        if tableView == self.projectsTableView{
+            guard let piscines =  self.user.cursus42?.piscines else {return 1}
+            
+            piscines.forEach { (item) in
+                if item.piscineName == user.cursus42?.projects?[section].name {count = item.piscineDays.count}
+            }
+        }
+        
+        
+        
+        return count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell?
@@ -96,26 +125,55 @@ extension UserInfoViewController: UITableViewDataSource{
         if tableView == self.skillsTableView{
             let skillCell = tableView.dequeueReusableCell(withIdentifier: SkillsTableViewCell.className())
                 as! SkillsTableViewCell
-            if let skill: Skill  = self.user.cursus42?.skills?[indexPath.row]{
+            if let skill: Skill  = self.user.cursus42?.skills?[indexPath.section]{
                 skillCell.skillName.text = skill.name
                 skillCell.skillPoints.text = String(format: "%.1f" , skill.level)
-//                skillCell.skillProgresBar.progress = Float(skill.level / 20)
+                skillCell.skillProgresBar.setProgress(Float(skill.level / 20), animated: false)
                 cell = skillCell as UITableViewCell
             }
         }
         
         if tableView == self.projectsTableView{
-            let projectCell = tableView.dequeueReusableCell(withIdentifier: ProjectsTableViewCell.className())
-                as! ProjectsTableViewCell
-            if let project: Project = self.user.cursus42?.projects?[indexPath.row]{
-                projectCell.projectName.text = project.name
-                projectCell.projectMark.text = String(project.projectMark)
-                projectCell.projectMark.textColor = project.validationStatus ?  UIColor.green : UIColor.red
+            print(indexPath)
+            if indexPath.row == 0
+            {
+                let projectCell = tableView.dequeueReusableCell(withIdentifier: ProjectsTableViewCell.className())
+                    as! ProjectsTableViewCell
+                if let project: Project = self.user.cursus42?.projects?[indexPath.section]{
+                    projectCell.projectName.text = project.name
+                    projectCell.projectMark.text = String(project.projectMark)
+                    cell = projectCell as UITableViewCell
+                }
             }
-            cell = projectCell as UITableViewCell
+            else {
+                let piscineCell = tableView.dequeueReusableCell(withIdentifier: PiscinesTableViewCell.className())
+                    as! PiscinesTableViewCell
+                if let piscines: [Piscine] = self.user.cursus42?.piscines{
+                    piscines.forEach { (item) in
+                        if item.piscineName == self.user.cursus42?.projects?[indexPath.section].name{
+                            piscineCell.piscineDay.text =  item.piscineDays[indexPath.row].name
+                            piscineCell.piscineMark.text = String(item.piscineDays[indexPath.row].projectMark)
+                            cell = piscineCell as UITableViewCell
+                        }
+                    }
+                }
+            }
         }
-        
         
         return cell!
     }
 }
+    
+    extension UserInfoViewController: UITableViewDelegate{
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            if tableView == self.projectsTableView{
+                print(indexPath)
+                if indexPath.row == 0{
+                    
+                }
+            }
+        }
+}
+

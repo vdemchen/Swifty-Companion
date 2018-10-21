@@ -57,6 +57,7 @@ class ModelsKeys: NSObject
     static let keyCampus = "campus"
     static let keyCampusName = "name"
     
+    static let keyCursusIds = "cursus_ids"
     
     static let keyProjects = "projects_users"
     

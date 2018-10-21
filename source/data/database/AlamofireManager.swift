@@ -71,7 +71,8 @@ class AlamofireManager{
                             if json.count == 0{
                                 complition("Haven`t user")
                             } else {
-                            JsonManager.init(json)
+                                let _ :JsonManager = JsonManager.init(json)
+                            let _ :User = User.shareUser()
                             complition(nil)
                             }
                         }

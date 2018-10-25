@@ -182,6 +182,11 @@
                                                     <constraint firstAttribute="height" constant="300" id="58j-Ub-PQC"/>
                                                 </constraints>
                                                 <color key="sectionIndexBackgroundColor" red="0.50008374452590942" green="0.67736321687698364" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="dataSource" destination="GIp-Jq-Hn7" id="NRr-iA-Afh"/>
                                                     <outlet property="delegate" destination="GIp-Jq-Hn7" id="DIx-LB-GYU"/>
@@ -193,6 +198,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="zo6-uZ-pXn"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="dataSource" destination="GIp-Jq-Hn7" id="q2z-nD-UKP"/>
                                                     <outlet property="delegate" destination="GIp-Jq-Hn7" id="Adr-yW-bPL"/>

@@ -23,6 +23,7 @@
 		248AA65421811C0100EE704A /* logo42.png in Resources */ = {isa = PBXBuildFile; fileRef = 248AA64F21811C0000EE704A /* logo42.png */; };
 		248AA65521811C0100EE704A /* alliance_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248AA65021811C0000EE704A /* alliance_background.jpg */; };
 		248AA65721811F0B00EE704A /* background_login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248AA65621811F0B00EE704A /* background_login.jpg */; };
+		24EB7B452181A9C600EC2A95 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB7B442181A9C600EC2A95 /* UIView.swift */; };
 		24F2E7BE216DA168003A7E0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7BD216DA168003A7E0A /* AppDelegate.swift */; };
 		24F2E7C5216DA169003A7E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F2E7C4216DA169003A7E0A /* Assets.xcassets */; };
 		24F2E800216DA374003A7E0A /* ModelsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7DC216DA374003A7E0A /* ModelsKeys.swift */; };
@@ -60,6 +61,7 @@
 		248AA64F21811C0000EE704A /* logo42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo42.png; sourceTree = "<group>"; };
 		248AA65021811C0000EE704A /* alliance_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alliance_background.jpg; sourceTree = "<group>"; };
 		248AA65621811F0B00EE704A /* background_login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_login.jpg; sourceTree = "<group>"; };
+		24EB7B442181A9C600EC2A95 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		24F2E7BA216DA168003A7E0A /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F2E7BD216DA168003A7E0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F2E7C4216DA169003A7E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				24F2E7E0216DA374003A7E0A /* UIAlertControllerExtension.swift */,
 				24F2E7E2216DA374003A7E0A /* NSObjectExtension.swift */,
 				24F2E7E3216DA374003A7E0A /* UIApplicationExtension.swift */,
+				24EB7B442181A9C600EC2A95 /* UIView.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				245FEDF5216E73E70078BC59 /* FindUserViewController.swift in Sources */,
 				24F2E809216DA374003A7E0A /* ActivityIndicatorView.swift in Sources */,
 				24823621217C7076001FCDD8 /* PiscineDayTableViewCell.swift in Sources */,
+				24EB7B452181A9C600EC2A95 /* UIView.swift in Sources */,
 				24F2E802216DA374003A7E0A /* UIAlertControllerExtension.swift in Sources */,
 				24F2E805216DA374003A7E0A /* UIApplicationExtension.swift in Sources */,
 				24F2E81F216DA4EB003A7E0A /* AlamofireManager.swift in Sources */,

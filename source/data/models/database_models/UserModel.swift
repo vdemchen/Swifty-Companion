@@ -69,7 +69,7 @@ struct Project{
     var projectId: Int
     var slug: String
     
-    init() {
+    init(){
         self.parentId = 0
         self.name = ""
         self.projectStatus = ""
@@ -78,7 +78,15 @@ struct Project{
         self.projectId = 0
         self.slug = ""
     }
-    init(parentId: Int? = 0, name: String, validationStatus: Bool, projectMark: Int, projectId: Int, slug: String, projectStatus: String) {
+    init(
+        parentId: Int? = 0,
+        name: String,
+        validationStatus: Bool,
+        projectMark: Int,
+        projectId: Int,
+        slug: String,
+        projectStatus: String
+        ){
         self.parentId = parentId
         self.name = name
         self.projectStatus = projectStatus
@@ -98,7 +106,10 @@ struct Skill {
         self.name = ""
     }
     
-    init(level: Double, name: String) {
+    init(
+        level: Double,
+        name: String
+        ) {
         self.level = level
         self.name = name
     }
@@ -106,18 +117,23 @@ struct Skill {
 
 class User{
     
-    private static var user: User?
+    // MARK: - Public properties
     var parameters: Parameters?
     var cursus42: Cursus?
     var cursusC: Cursus?
     
+    // MARK: - Private properties
+    private static var user: User?
+    
+    // MARK: - Init
     private init(){
         self.parameters = JsonManager.getUserParameters()
         self.cursus42 = JsonManager.createCursus(cursusNumber: 0)
         //        self.cursusC = JsonManager.createCursus(cursusNumber: 1)
-
+        
     }
     
+    // MARK: - Public methods
     static func shareUser() -> User {
         if let user = self.user
         {
@@ -135,6 +151,7 @@ class User{
         self.user = nil
     }
     
+    // MARK: - Private methods
     private func setCoalition(number: Int){
         if number != 0{
             self.parameters?.coalition = number

@@ -2,10 +2,7 @@ import UIKit
 
 
 class UserInfoViewController: BaseViewController {
-    
-    let user: User = User.shareUser()
-    var tapOnRow: (Int, Bool) = (0, false)
-    
+    // MARK: - IBOutlet
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var correctionPointLabel: UILabel!
     @IBOutlet weak var loginLabel: UILabel!
@@ -17,11 +14,13 @@ class UserInfoViewController: BaseViewController {
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var levelProgresBar: UIProgressView!
     @IBOutlet weak var levelPoints: UILabel!
-    
-    
     @IBOutlet weak var projectsTableView: UITableView!
     @IBOutlet weak var skillsTableView: UITableView!
     
+    // MARK: - Public properties
+    let user: User = User.shareUser()
+
+    // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
@@ -42,10 +41,11 @@ class UserInfoViewController: BaseViewController {
         self.projectsTableView.reloadData()
         self.skillsTableView.reloadData()
     }
-    
+
+    // MARK: - Private methods
     private func setProjectsTableView(){
+        self.projectsTableView.backgroundColor = UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudStandart)!)
         self.projectsTableView.dataSource = self as UITableViewDataSource
-        self.projectsTableView.delegate = self as UITableViewDelegate
         self.projectsTableView.register(ProjectsTableViewCell.nib(),
                                         forCellReuseIdentifier: ProjectsTableViewCell.identifier())
         self.projectsTableView.register(PiscineDayTableViewCell.nib(),
@@ -53,8 +53,8 @@ class UserInfoViewController: BaseViewController {
     }
     
     private func setSkillsTableView(){
+        self.skillsTableView.backgroundColor = UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudStandart)!)
         self.skillsTableView.dataSource = self as UITableViewDataSource
-        self.skillsTableView.delegate = self as UITableViewDelegate
         self.skillsTableView.register(SkillsTableViewCell.nib(),
                                       forCellReuseIdentifier: SkillsTableViewCell.identifier())
     }
@@ -94,16 +94,28 @@ class UserInfoViewController: BaseViewController {
         switch self.user.parameters?.coalition {
         case 5:
             self.view.backgroundColor =  UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudAlliance)!)
-            self.levelProgresBar.progressTintColor = UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudAlliance)!)
+            self.levelProgresBar.progressTintColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudAlliance)!)
+            self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudAlliance)!)
         case 6:
             self.view.backgroundColor =  UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudUnion)!)
-            self.levelProgresBar.progressTintColor = UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudUnion)!)
+            self.levelProgresBar.progressTintColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudUnion)!)
+            self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudUnion)!)
         case 7:
             self.view.backgroundColor =  UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudEmpire)!)
-            self.levelProgresBar.progressTintColor = UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudEmpire)!)
+            self.levelProgresBar.progressTintColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudEmpire)!)
+            self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudEmpire)!)
         case 8:
             self.view.backgroundColor =  UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudHive)!)
-            self.levelProgresBar.progressTintColor = UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudHive)!)
+            self.levelProgresBar.progressTintColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudHive)!)
+            self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage:
+                UIImage(named: ModelsKeys.keyBackGroudHive)!)
         default:
             self.view.backgroundColor =  UIColor(patternImage: UIImage(named: ModelsKeys.keyBackGroudStandart)!)
         }
@@ -128,15 +140,7 @@ extension UserInfoViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count: Int = 1
-        
-        
-        if tableView == self.projectsTableView{
-            if tapOnRow.1 == true{
-                count = 2
-            }
-        }
-        return count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -149,9 +153,7 @@ extension UserInfoViewController: UITableViewDataSource{
             if let skill: Skill  = self.user.cursus42?.skills?[indexPath.section]{
                 skillCell.skillName.text = skill.name
                 skillCell.skillPoints.text = String(format: "%.1f" , skill.level)
-                skillCell.skillProgresBar.setProgress(Float(skill.level / 20), animated: false)
-                
-                
+                skillCell.skillProgresBar.setProgress(Float(skill.level / 20), animated: true)
                 switch self.user.parameters?.coalition{
                 case 5:
                     skillCell.skillProgresBar.progressTintColor = UIColor(patternImage:
@@ -168,7 +170,6 @@ extension UserInfoViewController: UITableViewDataSource{
                 default:
                     skillCell.skillProgresBar.progressTintColor = UIColor.black
                 }
-                
                 cell = skillCell as UITableViewCell
             }
         }
@@ -176,20 +177,13 @@ extension UserInfoViewController: UITableViewDataSource{
         if tableView == self.projectsTableView{
             let projectCell = tableView.dequeueReusableCell(withIdentifier: ProjectsTableViewCell.className())
                 as! ProjectsTableViewCell
-            if !tapOnRow.1{
-                if let projects: Project = self.user.cursus42?.projects?[indexPath.section]{
-                    projectCell.projectName.text = projects.name
-                    projectCell.projectMark.text = String(projects.projectMark)
-                    projectCell.projectMark.textColor = projects.validationStatus ? UIColor.green : UIColor.red
-                }
-                cell = projectCell as UITableViewCell
+            if let projects: Project = self.user.cursus42?.projects?[indexPath.section]{
+                projectCell.projectName.text = projects.name
+                projectCell.projectMark.text = String(projects.projectMark)
+                projectCell.projectMark.textColor = projects.validationStatus ? UIColor.green : UIColor.red
             }
+            cell = projectCell as UITableViewCell
         }
         return cell!
     }
-}
-
-
-extension UserInfoViewController: UITableViewDelegate{
-    
 }

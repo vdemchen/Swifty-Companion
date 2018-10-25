@@ -33,7 +33,7 @@ class ActivityIndicatorView: UIView
     {
         let view = Bundle.main.loadNibNamed(ActivityIndicatorView.className(), owner: self, options: nil)?.first as! ActivityIndicatorView
         
-        if title.hasChars()
+        if title.count > 0
         {
             view.activityTitleLabel.text = title
         }

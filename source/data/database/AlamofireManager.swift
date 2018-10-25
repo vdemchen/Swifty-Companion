@@ -3,15 +3,14 @@ import Alamofire_SwiftyJSON
 
 class AlamofireManager{
     
-    private var token: String?
+    
+    // MARK: - Public properties
     let decoder = JSONDecoder()
     
-    private let config: [String:String] = [
-        ModelsKeys.keyGrantType: ModelsKeys.clientCradentials,
-        ModelsKeys.keyCliendId: ModelsKeys.uidKey,
-        ModelsKeys.keyClientSecret: ModelsKeys.secretKey
-    ]
+    // MARK: - Private properties
+    private var token: String?
     
+    // MARK: - Public methods
     func createToken(complition: @escaping(String?)->()){
         Alamofire.request(ModelsKeys.tokenLink, method: .post, parameters: self.config).responseJSON { response in
             guard response.result.isSuccess else {print(String(describing: response.result.error)); return}
@@ -30,6 +29,10 @@ class AlamofireManager{
     }
     
     
+    class func isConnectedToInternet() ->Bool {
+        return NetworkReachabilityManager()!.isReachable
+    }
+    
     class func createHeader(_ token: String) -> HTTPHeaders{
         let header: HTTPHeaders = [
             ModelsKeys.keyAuthoriztion: ("\(ModelsKeys.keyBearer) \(token)"),
@@ -42,9 +45,9 @@ class AlamofireManager{
         var image: UIImage?
         
         if let url = URL(string: imageUrl){
-                if let data = try? Data(contentsOf: url){
-                    image = UIImage(data: data)
-                }
+            if let data = try? Data(contentsOf: url){
+                image = UIImage(data: data)
+            }
         }
         return image
     }
@@ -111,4 +114,14 @@ class AlamofireManager{
             }
         })
     }
+    
+    // MARK: - Private methods
+    private let config: [String:String] = [
+        ModelsKeys.keyGrantType: ModelsKeys.clientCradentials,
+        ModelsKeys.keyCliendId: ModelsKeys.uidKey,
+        ModelsKeys.keyClientSecret: ModelsKeys.secretKey
+    ]
+    
+   
+   
 }

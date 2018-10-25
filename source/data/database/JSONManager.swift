@@ -2,13 +2,15 @@ import SwiftyJSON
 import Foundation
 
 class JsonManager{
-    
+    // MARK: - Private properties
     private static var userJson = JSON()
     
+    // MARK: - Init
     init(_ inputJson: JSON) {
         JsonManager.userJson = inputJson
     }
     
+    // MARK: - Public methods
     static func getUserParameters() -> Parameters?{
         
         var parameters: Parameters = Parameters()

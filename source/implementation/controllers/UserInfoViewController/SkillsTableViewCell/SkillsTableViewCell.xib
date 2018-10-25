@@ -19,36 +19,35 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="K4I-92-Iyp">
-                        <rect key="frame" x="31" y="52" width="224" height="2"/>
+                        <rect key="frame" x="31" y="44" width="224" height="10"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="2F8-Qw-hlN"/>
+                            <constraint firstAttribute="height" constant="10" id="Jef-wQ-Oef"/>
                         </constraints>
                     </progressView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="skill" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymH-x5-nn8">
-                        <rect key="frame" x="21" y="16" width="29" height="26"/>
+                        <rect key="frame" x="21" y="16" width="29" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqU-Jd-i2Q">
-                        <rect key="frame" x="223" y="16" width="42" height="26"/>
+                        <rect key="frame" x="223" y="16" width="42" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ymH-x5-nn8" firstAttribute="top" secondItem="aqU-Jd-i2Q" secondAttribute="bottom" constant="-26" id="1Sj-Z1-TsN"/>
-                    <constraint firstItem="ymH-x5-nn8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Fmr-ct-gYF"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="K4I-92-Iyp" secondAttribute="bottom" constant="5" id="IBf-oe-rdc"/>
-                    <constraint firstItem="K4I-92-Iyp" firstAttribute="top" secondItem="aqU-Jd-i2Q" secondAttribute="bottom" constant="10" id="Kpn-AA-dYk"/>
-                    <constraint firstItem="K4I-92-Iyp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="OhV-zE-I42"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="K4I-92-Iyp" secondAttribute="trailing" constant="15" id="QVV-Ug-88g"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="aqU-Jd-i2Q" secondAttribute="trailing" constant="5" id="XOH-AU-eRa"/>
-                    <constraint firstItem="aqU-Jd-i2Q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="itV-AM-1Xb"/>
-                    <constraint firstItem="aqU-Jd-i2Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ymH-x5-nn8" secondAttribute="trailing" constant="20" id="nFW-e6-mH6"/>
-                    <constraint firstItem="K4I-92-Iyp" firstAttribute="top" secondItem="ymH-x5-nn8" secondAttribute="bottom" constant="10" id="oHw-6l-g7O"/>
-                    <constraint firstItem="ymH-x5-nn8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="u2c-TN-lCH"/>
+                    <constraint firstItem="ymH-x5-nn8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="4Jn-Vk-78C"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="aqU-Jd-i2Q" secondAttribute="trailing" constant="5" id="Ndd-am-cpT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="K4I-92-Iyp" secondAttribute="trailing" constant="15" id="apu-Jy-k5z"/>
+                    <constraint firstItem="K4I-92-Iyp" firstAttribute="top" secondItem="aqU-Jd-i2Q" secondAttribute="bottom" constant="10" id="bHT-ma-Rlk"/>
+                    <constraint firstItem="aqU-Jd-i2Q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ymH-x5-nn8" secondAttribute="trailing" constant="20" id="ebs-lm-zZl"/>
+                    <constraint firstItem="ymH-x5-nn8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="jkl-AC-Dzb"/>
+                    <constraint firstItem="aqU-Jd-i2Q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="mXS-CI-s7Y"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="K4I-92-Iyp" secondAttribute="bottom" constant="5" id="mcC-Ub-fRS"/>
+                    <constraint firstItem="K4I-92-Iyp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="y5K-ea-ROp"/>
+                    <constraint firstItem="K4I-92-Iyp" firstAttribute="top" secondItem="ymH-x5-nn8" secondAttribute="bottom" constant="10" id="yK0-IN-4hV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

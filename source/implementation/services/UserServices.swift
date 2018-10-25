@@ -1,7 +1,7 @@
 import Foundation
 
 class UserServices: NSObject {
-    
+    // MARK: - Public methods
     class func getUser(userLogin: String, complition: @escaping(_ result: String?)->()){
         AlamofireManager().getUserRequsest(userName: userLogin) { (result) in
             if result != nil {

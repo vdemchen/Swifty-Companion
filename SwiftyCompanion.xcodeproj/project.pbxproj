@@ -30,7 +30,6 @@
 		24F2E802216DA374003A7E0A /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7E0216DA374003A7E0A /* UIAlertControllerExtension.swift */; };
 		24F2E804216DA374003A7E0A /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7E2216DA374003A7E0A /* NSObjectExtension.swift */; };
 		24F2E805216DA374003A7E0A /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7E3216DA374003A7E0A /* UIApplicationExtension.swift */; };
-		24F2E807216DA374003A7E0A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7E5216DA374003A7E0A /* StringExtension.swift */; };
 		24F2E808216DA374003A7E0A /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F2E7E9216DA374003A7E0A /* ActivityIndicatorView.xib */; };
 		24F2E809216DA374003A7E0A /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7EA216DA374003A7E0A /* ActivityIndicatorView.swift */; };
 		24F2E80A216DA374003A7E0A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7EC216DA374003A7E0A /* BaseViewController.swift */; };
@@ -70,7 +69,6 @@
 		24F2E7E0216DA374003A7E0A /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		24F2E7E2216DA374003A7E0A /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		24F2E7E3216DA374003A7E0A /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
-		24F2E7E5216DA374003A7E0A /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		24F2E7E9216DA374003A7E0A /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
 		24F2E7EA216DA374003A7E0A /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		24F2E7EC216DA374003A7E0A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				24F2E7E0216DA374003A7E0A /* UIAlertControllerExtension.swift */,
 				24F2E7E2216DA374003A7E0A /* NSObjectExtension.swift */,
 				24F2E7E3216DA374003A7E0A /* UIApplicationExtension.swift */,
-				24F2E7E5216DA374003A7E0A /* StringExtension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -468,7 +465,6 @@
 				24F2E804216DA374003A7E0A /* NSObjectExtension.swift in Sources */,
 				24F2E80D216DA374003A7E0A /* UserServices.swift in Sources */,
 				24860A3B217AADB3001A9C98 /* ProjectsTableViewCell.swift in Sources */,
-				24F2E807216DA374003A7E0A /* StringExtension.swift in Sources */,
 				24F2E800216DA374003A7E0A /* ModelsKeys.swift in Sources */,
 				24860A44217B6F1C001A9C98 /* SkillsTableViewCell.swift in Sources */,
 				24F2E801216DA374003A7E0A /* UserModel.swift in Sources */,

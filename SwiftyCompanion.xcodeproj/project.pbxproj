@@ -17,6 +17,12 @@
 		24860A3C217AADB3001A9C98 /* ProjectsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */; };
 		24860A44217B6F1C001A9C98 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24860A42217B6F1B001A9C98 /* SkillsTableViewCell.swift */; };
 		24860A45217B6F1C001A9C98 /* SkillsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24860A43217B6F1C001A9C98 /* SkillsTableViewCell.xib */; };
+		248AA65121811C0100EE704A /* empire_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248AA64C21811BFF00EE704A /* empire_background.jpg */; };
+		248AA65221811C0100EE704A /* union_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248AA64D21811C0000EE704A /* union_background.jpg */; };
+		248AA65321811C0100EE704A /* hive_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248AA64E21811C0000EE704A /* hive_background.jpg */; };
+		248AA65421811C0100EE704A /* logo42.png in Resources */ = {isa = PBXBuildFile; fileRef = 248AA64F21811C0000EE704A /* logo42.png */; };
+		248AA65521811C0100EE704A /* alliance_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248AA65021811C0000EE704A /* alliance_background.jpg */; };
+		248AA65721811F0B00EE704A /* background_login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 248AA65621811F0B00EE704A /* background_login.jpg */; };
 		24F2E7BE216DA168003A7E0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7BD216DA168003A7E0A /* AppDelegate.swift */; };
 		24F2E7C5216DA169003A7E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F2E7C4216DA169003A7E0A /* Assets.xcassets */; };
 		24F2E800216DA374003A7E0A /* ModelsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2E7DC216DA374003A7E0A /* ModelsKeys.swift */; };
@@ -49,6 +55,12 @@
 		24860A3A217AADB3001A9C98 /* ProjectsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectsTableViewCell.xib; sourceTree = "<group>"; };
 		24860A42217B6F1B001A9C98 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
 		24860A43217B6F1C001A9C98 /* SkillsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkillsTableViewCell.xib; sourceTree = "<group>"; };
+		248AA64C21811BFF00EE704A /* empire_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = empire_background.jpg; sourceTree = "<group>"; };
+		248AA64D21811C0000EE704A /* union_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = union_background.jpg; sourceTree = "<group>"; };
+		248AA64E21811C0000EE704A /* hive_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hive_background.jpg; sourceTree = "<group>"; };
+		248AA64F21811C0000EE704A /* logo42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo42.png; sourceTree = "<group>"; };
+		248AA65021811C0000EE704A /* alliance_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alliance_background.jpg; sourceTree = "<group>"; };
+		248AA65621811F0B00EE704A /* background_login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_login.jpg; sourceTree = "<group>"; };
 		24F2E7BA216DA168003A7E0A /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F2E7BD216DA168003A7E0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F2E7C4216DA169003A7E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,7 +137,7 @@
 		24F2E7B1216DA168003A7E0A = {
 			isa = PBXGroup;
 			children = (
-				24F2E7D0216DA183003A7E0A /* resurce */,
+				24F2E7D0216DA183003A7E0A /* resources */,
 				24F2E7CF216DA179003A7E0A /* source */,
 				24F2E7BC216DA168003A7E0A /* project */,
 				24F2E7BB216DA168003A7E0A /* Products */,
@@ -145,7 +157,6 @@
 		24F2E7BC216DA168003A7E0A /* project */ = {
 			isa = PBXGroup;
 			children = (
-				24F2E7C4216DA169003A7E0A /* Assets.xcassets */,
 				24F2E7C9216DA169003A7E0A /* Info.plist */,
 			);
 			path = project;
@@ -162,11 +173,18 @@
 			path = source;
 			sourceTree = "<group>";
 		};
-		24F2E7D0216DA183003A7E0A /* resurce */ = {
+		24F2E7D0216DA183003A7E0A /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				248AA65621811F0B00EE704A /* background_login.jpg */,
+				248AA65021811C0000EE704A /* alliance_background.jpg */,
+				248AA64C21811BFF00EE704A /* empire_background.jpg */,
+				248AA64E21811C0000EE704A /* hive_background.jpg */,
+				248AA64F21811C0000EE704A /* logo42.png */,
+				248AA64D21811C0000EE704A /* union_background.jpg */,
+				24F2E7C4216DA169003A7E0A /* Assets.xcassets */,
 			);
-			path = resurce;
+			path = resources;
 			sourceTree = "<group>";
 		};
 		24F2E7D6216DA336003A7E0A /* FindUserViewController */ = {
@@ -274,9 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				24F2E7E7216DA374003A7E0A /* custom_elements */,
+				24F2E7D6216DA336003A7E0A /* FindUserViewController */,
 				24F2E7FE216DA374003A7E0A /* Launch Screen.storyboard */,
 				24F2E7FD216DA374003A7E0A /* Main.storyboard */,
-				24F2E7D6216DA336003A7E0A /* FindUserViewController */,
 				24F2E7D7216DA347003A7E0A /* UserInfoViewController */,
 			);
 			path = controllers;
@@ -380,13 +398,19 @@
 			files = (
 				24F2E80C216DA374003A7E0A /* BaseTableViewCell.xib in Resources */,
 				24F2E816216DA374003A7E0A /* Main.storyboard in Resources */,
+				248AA65521811C0100EE704A /* alliance_background.jpg in Resources */,
+				248AA65721811F0B00EE704A /* background_login.jpg in Resources */,
 				24F2E7C5216DA169003A7E0A /* Assets.xcassets in Resources */,
 				241E4325217B932F0036597F /* PiscineDayTableViewCell.xib in Resources */,
 				24F2E808216DA374003A7E0A /* ActivityIndicatorView.xib in Resources */,
+				248AA65321811C0100EE704A /* hive_background.jpg in Resources */,
+				248AA65121811C0100EE704A /* empire_background.jpg in Resources */,
 				24860A45217B6F1C001A9C98 /* SkillsTableViewCell.xib in Resources */,
 				24823625217C7123001FCDD8 /* PisicineTableViewCell.xib in Resources */,
 				24F2E817216DA374003A7E0A /* Launch Screen.storyboard in Resources */,
 				24860A3C217AADB3001A9C98 /* ProjectsTableViewCell.xib in Resources */,
+				248AA65221811C0100EE704A /* union_background.jpg in Resources */,
+				248AA65421811C0100EE704A /* logo42.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

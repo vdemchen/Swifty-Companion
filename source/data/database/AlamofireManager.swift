@@ -49,13 +49,11 @@ class AlamofireManager{
         return image
     }
     
-    
     func getUserRequsest(userName: String, complition: @escaping(_ error: String?)->()){
         
         self.createToken(complition: { (token) in
             if let token = token {
                 let  header = AlamofireManager.createHeader(token)
-                print(token)
                 Alamofire.request(
                     ModelsKeys.userGetLink+userName,
                     method: .get,
@@ -72,8 +70,41 @@ class AlamofireManager{
                                 complition("Haven`t user")
                             } else {
                                 let _ :JsonManager = JsonManager.init(json)
-                            let _ :User = User.shareUser()
-                            complition(nil)
+                                let user :User = User.shareUser()
+                                UserServices.getCoalitionNumber(userLogin: userName, complition: { (number) in
+                                    if number != 0{
+                                        user.parameters?.coalition = number
+                                        complition(nil)
+                                    }
+                                })
+                            }
+                        }
+                    })
+            }
+        })
+    }
+    
+    func getUserCoalition(userName: String, complition: @escaping(_ result: Int)->()){
+        
+        self.createToken(complition: { (token) in
+            if let token = token {
+                let  header = AlamofireManager.createHeader(token)
+                Alamofire.request(
+                    ModelsKeys.userGetLink+userName+ModelsKeys.coalitionGet,
+                    method: .get,
+                    headers: header
+                    )
+                    .responseSwiftyJSON(completionHandler: { (dataResponse) in
+                        if dataResponse.error == nil{
+                            guard let json = dataResponse.value
+                                else {
+                                    complition(0)
+                                    return
+                            }
+                            if json.count == 0{
+                                complition(0)
+                            } else {
+                                complition(json[0][ModelsKeys.keyCoalitionId].int ?? 0)
                             }
                         }
                     })

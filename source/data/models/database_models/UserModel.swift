@@ -15,6 +15,7 @@ struct Parameters{
     var grade: String
     var campusLocation: String
     var correctionPoint: Int
+    var coalition: Int
     
     init() {
         firstName = ""
@@ -31,6 +32,7 @@ struct Parameters{
         grade = ""
         campusLocation = ""
         correctionPoint = 0
+        coalition = 0
     }
 }
 
@@ -61,6 +63,7 @@ struct Piscine {
 struct Project{
     var parentId: Int?
     var name: String
+    var projectStatus: String
     var validationStatus: Bool
     var projectMark: Int
     var projectId: Int
@@ -69,14 +72,16 @@ struct Project{
     init() {
         self.parentId = 0
         self.name = ""
+        self.projectStatus = ""
         self.validationStatus = false
         self.projectMark = 0
         self.projectId = 0
         self.slug = ""
     }
-    init(parentId: Int? = 0, name: String, validationStatus: Bool, projectMark: Int, projectId: Int, slug: String) {
+    init(parentId: Int? = 0, name: String, validationStatus: Bool, projectMark: Int, projectId: Int, slug: String, projectStatus: String) {
         self.parentId = parentId
         self.name = name
+        self.projectStatus = projectStatus
         self.validationStatus = validationStatus
         self.projectMark = projectMark
         self.projectId = projectId
@@ -109,7 +114,8 @@ class User{
     private init(){
         self.parameters = JsonManager.getUserParameters()
         self.cursus42 = JsonManager.createCursus(cursusNumber: 0)
-        self.cursusC = JsonManager.createCursus(cursusNumber: 1)
+        //        self.cursusC = JsonManager.createCursus(cursusNumber: 1)
+
     }
     
     static func shareUser() -> User {
@@ -125,4 +131,13 @@ class User{
         }
     }
     
+    static func deleteUser(){
+        self.user = nil
+    }
+    
+    private func setCoalition(number: Int){
+        if number != 0{
+            self.parameters?.coalition = number
+        }
+    }
 }

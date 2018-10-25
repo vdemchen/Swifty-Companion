@@ -7,18 +7,21 @@ class FindUserViewController: BaseViewController {
     @IBAction func findUserButtom(_ sender: Any){
         ActivityIndicatorView.showActivity()
         guard let login = loginInputField.text else {return}
-//        let login = "vdemchen"
         if !login.isEmpty{
             makeResponse(login: login)
         }
         else{
-            showErrorAlertWith(message: "Not valid")
+            showErrorAlertWith(message: "Not valid login")
             ActivityIndicatorView.hideAllActivity()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        
+        self.view.backgroundColor = UIColor(patternImage:
+            UIImage(named: ModelsKeys.keyBackGroudStandart)!)
         self.reloadInputViews()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -26,12 +29,15 @@ class FindUserViewController: BaseViewController {
     }
     
     private func makeResponse(login: String){
+        User.deleteUser()
+        
         AlamofireManager().getUserRequsest(userName: login) { (result) in
             if result != nil{
                 guard let error: String = result else {return}
                 ActivityIndicatorView.hideAllActivity()
                 self.showErrorAlertWith(message: error)
             }else {
+                
                 self.performSegue(withIdentifier: UserInfoViewController.className(), sender: nil)
             }
         }

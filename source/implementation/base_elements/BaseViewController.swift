@@ -22,6 +22,5 @@ class BaseViewController: UIViewController
     func updateUi()
     {
         self.view.backgroundColor = UIColor.white
-//        UIApplication.shared.statusBarView?.backgroundColor = UIColor.mainDarkAppColor
     }
 }

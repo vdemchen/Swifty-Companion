@@ -14,6 +14,7 @@ class ModelsKeys: NSObject
     static let keyBearer = "Bearer"
     
     static let userGetLink = "https://api.intra.42.fr/v2/users/"
+    static let coalitionGet = "/coalitions_users/"
     
     static let tokenLink = "https://api.intra.42.fr/oauth/token"
     static let apiLink = "https://api.intra.42.fr/"
@@ -62,7 +63,7 @@ class ModelsKeys: NSObject
     static let keyProjects = "projects_users"
     
     static let keyProjectsFinalMark = "final_mark"
-    static let keyProjectsValidate = "validate?"
+    static let keyProjectsValidate = "validated?"
     static let keyProjectsStatus = "status"
     static let keyProjectsDetail = "project"
     static let keyProjectsDetailName = "name"
@@ -70,7 +71,15 @@ class ModelsKeys: NSObject
     static let keyProjectsDetailParentId = "parent_id"
     static let keyProjectsDetailSlug = "slug"
     
+    static let keyCoalitionId = "coalition_id"
+    
     // End JSON keys
+    
+    static let keyBackGroudStandart = "background_login.jpg"
+    static let keyBackGroudAlliance = "alliance_background.jpg"
+    static let keyBackGroudEmpire = "empire_background.jpg"
+    static let keyBackGroudHive = "hive_background.jpg"
+    static let keyBackGroudUnion = "union_background.jpg"
     
     
 }

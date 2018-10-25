@@ -86,7 +86,8 @@ class JsonManager{
                     validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
                     projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0,
                     projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0,
-                    slug: item[ModelsKeys.keyProjectsDetailSlug].string ?? ""
+                    slug: item[ModelsKeys.keyProjectsDetailSlug].string ?? "",
+                    projectStatus: item[ModelsKeys.keyProjectsStatus].string ?? ""
                 )
                 projects.append(project)
             }
@@ -146,7 +147,8 @@ class JsonManager{
                         validationStatus: item[ModelsKeys.keyProjectsValidate].bool ?? false,
                         projectMark: item[ModelsKeys.keyProjectsFinalMark].int ?? 0,
                         projectId: project[ModelsKeys.keyProjectsDetailId]?.int ?? 0,
-                        slug: item[ModelsKeys.keyProjectsDetailSlug].string ?? ""
+                        slug: item[ModelsKeys.keyProjectsDetailSlug].string ?? "",
+                        projectStatus: item[ModelsKeys.keyProjectsStatus].string ?? ""
                     )
                     piscine.append(day)
                 }

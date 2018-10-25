@@ -9,5 +9,12 @@ class UserServices: NSObject {
             }
         }
     }
+    
+    class func getCoalitionNumber(userLogin: String, complition: @escaping(_ result: Int)->()){
+        AlamofireManager().getUserCoalition(userName: userLogin) { (result) in
+            if result != 0{
+                complition(result)
+            }
+        }
+    }
 }
-
